@@ -1,17 +1,13 @@
-// Shared content — original Trustydruck copy is preserved verbatim.
+// Shared content — original Trustydruck copy preserved verbatim.
+// Each of the four services maps 1:1 to one of the four print inks (CMYK).
 import { ICON } from "./layout.mjs";
 
 export const SERVICES = [
   {
-    slug: "leuchtreklame",
-    num: "01",
-    icon: ICON.sign,
-    title: "Leuchtreklame",
-    img: "assets/img/leuchtreklame.png",
-    fit: "cover",
+    slug: "leuchtreklame", num: "01", icon: ICON.sign, chan: "c", channel: "Cyan",
+    title: "Leuchtreklame", img: "assets/img/leuchtreklame.png", fit: "cover", stamp: "Gut zum Druck",
     lead: "Setzen Sie Ihre Marke ins richtige Licht!",
-    short:
-      "Wir gestalten und produzieren hochwertige Leuchtreklamen, die Ihre Botschaft bei Tag und Nacht perfekt präsentieren. Mit modernster LED-Technik und langlebigen Materialien sorgen wir dafür, dass Ihre Werbung immer auffällt und im besten Licht erstrahlt.",
+    short: "Wir gestalten und produzieren hochwertige Leuchtreklamen, die Ihre Botschaft bei Tag und Nacht perfekt präsentieren. Mit modernster LED-Technik und langlebigen Materialien sorgen wir dafür, dass Ihre Werbung immer auffällt und im besten Licht erstrahlt.",
     tags: ["LED-Technik", "Leuchtkästen", "Profilbuchstaben", "Tag & Nacht"],
     features: [
       ["Profil- & Leuchtbuchstaben", "Plastisch, hochwertig und weithin sichtbar – individuell für Ihre Fassade gefertigt."],
@@ -21,15 +17,10 @@ export const SERVICES = [
     ],
   },
   {
-    slug: "textildruck",
-    num: "02",
-    icon: ICON.shirt,
-    title: "Textildruck",
-    img: "assets/img/textildruck.jpg",
-    fit: "cover",
+    slug: "textildruck", num: "02", icon: ICON.shirt, chan: "m", channel: "Magenta",
+    title: "Textildruck", img: "assets/img/textildruck.jpg", fit: "cover", stamp: "Freigegeben",
     lead: "Individueller Textildruck für jeden Anlass!",
-    short:
-      "Ob Firmenkleidung, Vereinsbedarf oder persönliche Geschenke – wir bringen Ihre Ideen auf Textil. Mit hochwertigen Drucktechniken wie Siebdruck und Flexdruck sowie präziser Stickerei garantieren wir langanhaltende Ergebnisse, die überzeugen.",
+    short: "Ob Firmenkleidung, Vereinsbedarf oder persönliche Geschenke – wir bringen Ihre Ideen auf Textil. Mit hochwertigen Drucktechniken wie Siebdruck und Flexdruck sowie präziser Stickerei garantieren wir langanhaltende Ergebnisse, die überzeugen.",
     tags: ["Siebdruck", "Flexdruck", "Stickerei", "Firmenkleidung"],
     features: [
       ["Siebdruck", "Brillante, deckende Farben – ideal für höhere Auflagen und kräftige Motive."],
@@ -39,15 +30,10 @@ export const SERVICES = [
     ],
   },
   {
-    slug: "print-medien",
-    num: "03",
-    icon: ICON.printer,
-    title: "Print & Medien",
-    img: "assets/img/print-medien.png",
-    fit: "contain",
+    slug: "print-medien", num: "03", icon: ICON.printer, chan: "y", channel: "Yellow",
+    title: "Print & Medien", img: "assets/img/print-medien.png", fit: "contain", stamp: "Gut zum Druck",
     lead: "Hochwertige Druckprodukte für jeden Bedarf.",
-    short:
-      "Von Visitenkarten über Flyer bis hin zu großformatigen Bannern – wir bieten Ihnen alles, was Sie für Ihre Drucksachen benötigen. Unsere Druckprodukte zeichnen sich durch exzellente Qualität und schnelle Lieferung aus.",
+    short: "Von Visitenkarten über Flyer bis hin zu großformatigen Bannern – wir bieten Ihnen alles, was Sie für Ihre Drucksachen benötigen. Unsere Druckprodukte zeichnen sich durch exzellente Qualität und schnelle Lieferung aus.",
     tags: ["Visitenkarten", "Flyer & Broschüren", "Banner", "Großformat"],
     features: [
       ["Visitenkarten & Flyer", "Hochwertige Veredelung, die in Erinnerung bleibt."],
@@ -57,15 +43,10 @@ export const SERVICES = [
     ],
   },
   {
-    slug: "grafik",
-    num: "04",
-    icon: ICON.spark,
-    title: "Grafik & Design",
-    img: "assets/img/print-medien.png",
-    fit: "contain",
+    slug: "grafik", num: "04", icon: ICON.spark, chan: "k", channel: "Key / Schwarz",
+    title: "Grafik & Logo", img: "assets/img/print-medien.png", fit: "contain", stamp: "Freigegeben",
     lead: "Kreative Designs, die begeistern!",
-    short:
-      "Wir verwandeln Ihre Ideen in visuell ansprechende und professionelle Medien, die Ihre Zielgruppe ansprechen. Vom Logo über Broschüren bis hin zu digitalen Grafiken bieten wir maßgeschneiderte Lösungen, die Ihr Unternehmen perfekt widerspiegeln.",
+    short: "Wir verwandeln Ihre Ideen in visuell ansprechende und professionelle Medien, die Ihre Zielgruppe ansprechen. Vom Logo über Broschüren bis hin zu digitalen Grafiken bieten wir maßgeschneiderte Lösungen, die Ihr Unternehmen perfekt widerspiegeln.",
     tags: ["Logo-Design", "Corporate Design", "Digitale Grafik", "Layout"],
     features: [
       ["Logo & Markenidentität", "Ein prägnantes Zeichen, das Ihre Marke unverwechselbar macht."],
@@ -79,5 +60,5 @@ export const SERVICES = [
 export const KEYWORDS = [
   "Leuchtreklame", "Textildruck", "Siebdruck", "Stickerei", "Visitenkarten",
   "Flyer", "Banner", "Logo-Design", "Corporate Design", "Beschriftung",
-  "Großformat", "Werbetechnik", "Firmenkleidung", "Print & Media",
+  "Großformat", "Werbetechnik", "Firmenkleidung", "Vier Farben",
 ];

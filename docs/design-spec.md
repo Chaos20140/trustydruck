@@ -1,37 +1,33 @@
-# Design-Spec — Trustydruck Redesign (2026-07-01)
+# Design-Spec — Trustydruck „NASSDRUCK" (2026-07-01, v2)
 
-## Ausgangslage
-Bestehende Wix-Seite (trustydruck.de) einer Werbeagentur für hochwertige, individuelle
-Bedruckungslösungen in Meschede. Analyse übernommen: Logo (weißes „Blade“-Zeichen +
-Wortmarke TRUSTY/DRUCK), Marken-DNA schwarz + elektrisches Cyan-Blau, 3 Leistungen
-(Leuchtreklame, Textildruck, Print & Medien) sowie alle Originaltexte und Kontaktdaten.
+## Kontext
+Erste Version (dunkles Neon-Template) wurde als „ideenlos/innovationslos" abgelehnt. Danach
+zwei Zusatz-Anforderungen: **echte Animation im Hintergrund (WebGL/3D)** und Orientierung an
+**Awwwards**-Niveau. Konzept-Workflow (6 Konzepte → 3 Jurys → Synthese) lieferte Print-/CMYK-
+Richtungen; der Kunde wählte **„CMYK Ink-Fluid (WebGL-Shader)"**.
+
+## Konzept „NASSDRUCK — Vier Farben, ein Handwerk"
+Die Website ist eine lebende Vierfarb-Druckmaschine. Hero = WebGL2-Fluid: Cursor = Feder,
+CMY-Farben bluten und mischen **echt subtraktiv** (Beer-Lambert), Farbe „trocknet" zurück
+aufs Papier. Editoriales Print-Layout mit Register-/Schnittmarken, mono Auftrags-Slugs,
+Proof-Rahmen („Gut zum Druck"), kinetische Titel, CMYK-Fehlregister auf Headlines.
 
 ## Entscheidungen
-- **Ästhetik:** „Electric Neon Studio“ (dunkel, Neon-Glow als Leitmotiv zur Leuchtreklame).
-- **Struktur:** Multi-Page — Home, Leistungen, Über uns, Kontakt, Impressum, Datenschutz.
-- **Technik:** Statisch (HTML/CSS/JS), Node-Generator, kein Runtime-Build.
+- **Hintergrund:** echte WebGL2-Navier–Stokes-Fluid-Simulation (self-hosted, kein Three.js/CDN nötig).
+- **Grundton:** warmes Druckpapier (`#f4f1ea`) — hält Header/Text lesbar; Ink als Wet-Overlay.
+- **Farbsystem:** CMYK-Tinten (C `#00aeef`, M `#ec008c`, Y `#ffd200`, K `#111`), Papier, Overlap-Blau `#2e3192`.
+- **Typo:** Archivo Black (Display), Fraunces (editorial Serif), IBM Plex Mono (Labels/Zahlen) — self-hosted.
+- **Leistungen ↔ Kanäle:** Leuchtreklame=C, Textildruck=M, Print&Medien=Y, Grafik&Logo=K.
+- **Struktur:** Multi-Page (Home, Leistungen, Über uns, Kontakt, Impressum, Datenschutz).
 - **Deployment:** GitHub Pages.
-- **Referenzen „bisherige Projekte“:** liegen lokal nicht vor → Premium-Richtung nach
-  modernem Agentur-Standard, aufbauend auf der bestehenden Marken-DNA.
 
-## Designsystem
-- Farben: `--bg:#05060a`, Ink `#eef2f8`, Brand `#18b6f3` / `#3ee0ff`, Glow-Effekte.
-  Sparsame CMYK-Akzente (Magenta/Lime/Amber) als Print-Nod.
-- Typografie: Anton (Display, kondensiert), Inter (Body/UI), Space Grotesk (Labels/Zahlen).
-- Komponenten: Header + Mobile-Overlay, Hero, Marquee, Service-Cards, Split-Sections,
-  Trust-/Process-/Gallery-Grids, CTA-Band, Kontaktformular + Map, Footer, Cookie-Hinweis.
-- Motion: Scroll-Reveal (IntersectionObserver), Custom-Cursor, animierte Zähler,
-  respektiert `prefers-reduced-motion`.
-
-## Bilder
-Echte Assets von der Seite: Logo, beleuchtetes Trustydruck-Schild (Hero), LED-Leuchtbuchstaben,
-bestickte Firmenjacke, Grafikdesign-Splash, bedruckter Werbeschirm. Zusätzliche Atmosphäre
-rein über CSS (Neon/Glow/Grain) statt fremder, urheberrechtlich geschützter Dribbble-Shots.
-
-## Qualität
-Selbst gehostete Schriften (DSGVO), CSP + Security-Header, No-JS-Fallback, SEO (Meta, OG,
-JSON-LD, Sitemap), Accessibility (Fokus, Alt-Texte, semantisches HTML).
+## Robustheit (wichtig gelernt)
+- 16F-Framebuffer-Skalierung: Splat-Geschwindigkeiten müssen klein sein, sonst „explodiert"
+  der Farbstoff und ist unsichtbar. Dye-Dissipation moderat → Ink bleibt sichtbar, dann trocknet.
+- `data-ink-stage` NICHT absolut positionieren (sonst fällt der Hero aus dem Fluss).
+- Lazy-Bilder brauchen definierte `aspect-ratio` am Rahmen, sonst laden sie nie (0-Höhe).
+- Fallbacks: WebGL-Check, `prefers-reduced-motion`, `deviceMemory`, No-JS, Offscreen-Pause,
+  FPS-Watchdog → statischer CSS-Ink-Fallback.
 
 ## Offen
-Impressum/Datenschutz enthalten Platzhalter `[ … ]` (Inhabername, USt-IdNr.) — durch
-Trustydruck zu ergänzen und rechtlich zu prüfen.
+Impressum/Datenschutz-Platzhalter `[ … ]` durch Trustydruck ergänzen + rechtlich prüfen.

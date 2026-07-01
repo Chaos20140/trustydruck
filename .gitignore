@@ -6,3 +6,6 @@ Thumbs.db
 trustydruck-full.jpeg
 .vscode/
 .idea/
+
+# screenshots
+*.jpeg

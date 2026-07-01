@@ -9,7 +9,7 @@ const FONT_DIR = path.join(ROOT, "assets", "fonts");
 const UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36";
 const CSS_URL =
-  "https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap";
+  "https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap";
 const KEEP = new Set(["latin", "latin-ext"]);
 
 const css = await (await fetch(CSS_URL, { headers: { "User-Agent": UA } })).text();
