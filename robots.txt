@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://chaos20140.github.io/trustydruck/sitemap.xml

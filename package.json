@@ -1,0 +1,14 @@
+{
+  "name": "trustydruck",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TRUSTYDRUCK – Print & Media · Website (Electric Neon Studio redesign)",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "fonts": "node scripts/fetch-fonts.mjs",
+    "serve": "node --experimental-strip-types 2>/dev/null; npx --yes serve -l 5173 ."
+  },
+  "author": "Trustydruck",
+  "license": "UNLICENSED"
+}
