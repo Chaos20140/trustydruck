@@ -177,7 +177,7 @@ function actionBar() {
 
 function cookie() {
   return `<div class="cookie" role="dialog" aria-label="Cookie-Hinweis">
-    <p>Diese Website nutzt nur technisch notwendige Cookies sowie Google Fonts und eine eingebettete Karte, um dir ein optimales Erlebnis zu bieten. Mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+    <p>Diese Website nutzt nur technisch notwendige Speicherung sowie eine eingebettete Karte (Google Maps). Schriften werden lokal geladen – es findet kein Tracking statt. Mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
     <div class="row">
       <button class="btn btn--primary" data-cookie>Verstanden</button>
       <a class="btn btn--ghost" href="datenschutz.html">Einstellungen</a>
