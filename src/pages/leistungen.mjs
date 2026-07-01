@@ -21,7 +21,7 @@ function block(s, i) {
 <section class="svc-block chan-${s.chan}" id="${s.slug}">
   <div class="container">
     <div class="split${rev ? " split--rev" : ""}">
-      <div class="reveal">${proof(s.img, { cap: s.title, stamp: s.stamp, chan: s.chan, contain: s.fit === "contain" })}</div>
+      <div class="reveal" data-parallax>${proof(s.img, { cap: s.title, stamp: s.stamp, chan: s.chan, contain: s.fit === "contain", cmyk: true })}</div>
       <div class="reveal" data-d="2">
         ${sepLabel(s.num, s.channel, s.chan)}
         <h2 class="display ink-title kinetic">${s.title}</h2>

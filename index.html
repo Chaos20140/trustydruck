@@ -31,6 +31,7 @@
     <div class="pl-word">Vier Farben · ein Handwerk</div>
   </div>
 </div>
+<div class="ink-bg" data-ink-stage aria-hidden="true"><canvas id="ink"></canvas><div class="ink-fallback"></div></div>
 <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
 <div class="slug">
   <span class="dot"><i style="background:#00aeef"></i><i style="background:#ec008c"></i><i style="background:#ffd200"></i><i style="background:#f4f1ea"></i>&nbsp; AUFTRAG: WEBSITE · 4/4-FARBIG</span>
@@ -62,8 +63,7 @@
     <a class="btn btn--wa" href="https://wa.me/4915211878724" target="_blank" rel="noopener noreferrer">WhatsApp</a>
   </div>
 </div><main id="main">
-<section class="hero" data-ink-stage>
-  <canvas id="ink" aria-hidden="true"></canvas>
+<section class="hero ink-window">
   <div class="hero-veil" aria-hidden="true"></div>
   <div class="density" aria-hidden="true">
     <span>Dichte</span><b class="d-c"></b><b class="d-m"></b><b class="d-y"></b><b class="d-k"></b>
@@ -116,7 +116,7 @@
         <p style="margin-top:16px;color:var(--ink-soft)">Von einzigartigen Designs bis hin zu Firmenlogos und Werbebotschaften – wir bringen Ihre Ideen zum Leben. Mit einem engagierten Team und einem Fokus auf Qualität und Kundenzufriedenheit bieten wir einen herausragenden Service und einzigartige Produkte.</p>
         <div class="btn-row" style="margin-top:28px"><a class="arrow" href="ueber-uns.html">Mehr über uns <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </div>
-      <div class="reveal" data-d="2" data-parallax><figure class="proof chan-c">
+      <div class="reveal" data-d="2" data-parallax><figure class="proof chan-c" data-cursor="view">
     <div class="inner">
       <img src="assets/img/leuchtreklame.png" alt="LED · Leuchtbuchstaben" loading="lazy">
       <figcaption class="cap">LED · Leuchtbuchstaben</figcaption>
@@ -199,7 +199,7 @@
 <section class="section section--tight">
   <div class="container">
     <div class="split split--rev">
-      <div class="reveal" data-parallax><figure class="proof chan-c">
+      <div class="reveal" data-parallax><figure class="proof chan-c" data-cursor="view">
     <div class="inner">
       <img src="assets/img/gallery-1.jpg" alt="Leuchtreklame · Fassade" loading="lazy">
       <figcaption class="cap">Leuchtreklame · Fassade</figcaption>
@@ -220,7 +220,12 @@
       </div>
     </div>
   </div>
-</section>
+</section><section class="statement ink-window">
+    <div class="container">
+      <p class="st-eyebrow mono reveal">// Vier Farben, ein Handwerk</p>
+      <h2 class="st-head display" data-marquee-line>Wir bringen Ideen <em>zum Leuchten</em> — auf Textil, Papier und Fassade.</h2>
+    </div>
+  </section>
 <div class="container"><div class="cutline"><span>Ablauf</span></div></div>
 <section class="section section--tight" id="ablauf">
   <div class="container">
@@ -230,11 +235,11 @@
     </div>
   </div>
 </section>
-<section class="section section--tight" id="arbeiten">
+<section class="section section--tight ink-window" id="arbeiten">
   <div class="container">
-    <div class="section-head reveal"><span class="kicker"><span class="sw sw-c"></span><span class="sw sw-m"></span><span class="sw sw-y"></span><span class="sw sw-k"></span>Ausgewählte Arbeiten</span><h2 class="display ink-title">Frisch aus der Presse.</h2></div>
+    <div class="section-head reveal"><span class="kicker"><span class="sw sw-c"></span><span class="sw sw-m"></span><span class="sw sw-y"></span><span class="sw sw-k"></span>Ausgewählte Arbeiten</span><h2 class="display ink-title" data-split>Frisch aus der Presse.</h2></div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px" class="reveal">
-      <figure class="proof chan-c">
+      <figure class="proof chan-c" data-cursor="view">
     <div class="inner">
       <img src="assets/img/gallery-1.jpg" alt="Leuchtreklame" loading="lazy">
       <figcaption class="cap">Leuchtreklame</figcaption>
@@ -242,7 +247,7 @@
       <span class="marks"><span class="p1"></span><span class="p2"></span><span class="p3"></span><span class="p4"></span></span>
     </div>
   </figure>
-      <figure class="proof chan-m">
+      <figure class="proof chan-m" data-cursor="view">
     <div class="inner">
       <img src="assets/img/textildruck.jpg" alt="Textildruck" loading="lazy">
       <figcaption class="cap">Textildruck</figcaption>
@@ -250,7 +255,7 @@
       <span class="marks"><span class="p1"></span><span class="p2"></span><span class="p3"></span><span class="p4"></span></span>
     </div>
   </figure>
-      <figure class="proof chan-y">
+      <figure class="proof chan-y" data-cursor="view">
     <div class="inner">
       <img src="assets/img/gallery-2.jpg" alt="Werbeartikel" loading="lazy">
       <figcaption class="cap">Werbeartikel</figcaption>
@@ -260,16 +265,16 @@
   </figure>
     </div>
   </div>
-</section><section class="section section--tight">
+</section><section class="section section--tight ink-window">
     <div class="container">
       <div class="cta-band reveal">
         <span class="dots" aria-hidden="true"></span>
         <span class="kicker"><span class="sw sw-c"></span><span class="sw sw-m"></span><span class="sw sw-y"></span><span class="sw sw-k"></span>Freigabe erteilen</span>
-        <h2 class="display ink-title">Gemeinsam bringen wir Ihr <em>Unternehmen</em> voran!</h2>
-        <p>Geben Sie Ihrem Geschäft neuen Schwung. Kontaktieren Sie uns noch heute, um zu erfahren, wie wir Ihre Unternehmensbedürfnisse erfüllen können.</p>
+        <h2 class="display ink-title" data-split>Gemeinsam bringen wir Ihr <em class="glow-c">Unternehmen</em> voran!</h2>
+        <p class="reveal">Geben Sie Ihrem Geschäft neuen Schwung. Kontaktieren Sie uns noch heute, um zu erfahren, wie wir Ihre Unternehmensbedürfnisse erfüllen können.</p>
         <div class="btn-row">
-          <a class="btn btn--c btn--lg" href="kontakt.html">Angebot anfragen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn--wa btn--lg" href="https://wa.me/4915211878724" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.8-.9-2-1s-.5-.15-.7.15-.8 1-1 1.2-.35.2-.65.05a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.65-2.05c-.15-.3 0-.45.15-.6l.45-.55c.15-.2.2-.3.3-.5s.05-.4 0-.55-.7-1.65-.95-2.25c-.25-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4A3.4 3.4 0 0 0 5.5 9c0 1.5 1.1 3 1.25 3.2s2.15 3.3 5.2 4.6a17 17 0 0 0 1.75.65 4.2 4.2 0 0 0 1.9.12c.6-.1 1.8-.75 2.05-1.45s.25-1.35.2-1.45-.3-.2-.6-.35zM12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.45A10 10 0 1 0 12 2z"/></svg> WhatsApp</a>
+          <a class="btn btn--c btn--lg magnetic" href="kontakt.html">Angebot anfragen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--wa btn--lg magnetic" href="https://wa.me/4915211878724" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.8-.9-2-1s-.5-.15-.7.15-.8 1-1 1.2-.35.2-.65.05a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.65-2.05c-.15-.3 0-.45.15-.6l.45-.55c.15-.2.2-.3.3-.5s.05-.4 0-.55-.7-1.65-.95-2.25c-.25-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4A3.4 3.4 0 0 0 5.5 9c0 1.5 1.1 3 1.25 3.2s2.15 3.3 5.2 4.6a17 17 0 0 0 1.75.65 4.2 4.2 0 0 0 1.9.12c.6-.1 1.8-.75 2.05-1.45s.25-1.35.2-1.45-.3-.2-.6-.35zM12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.45A10 10 0 1 0 12 2z"/></svg> WhatsApp</a>
         </div>
       </div>
     </div>

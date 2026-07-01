@@ -21,8 +21,8 @@ export function cutline(label) {
 }
 
 // image as an approved press proof
-export function proof(src, { cap = "", stamp = "Gut zum Druck", chan = "m", contain = false } = {}) {
-  return `<figure class="proof${contain ? " proof--contain" : ""} chan-${chan}">
+export function proof(src, { cap = "", stamp = "Gut zum Druck", chan = "m", contain = false, cmyk = false } = {}) {
+  return `<figure class="proof${contain ? " proof--contain" : ""} chan-${chan}"${cmyk ? " data-cmyk" : ""} data-cursor="view">
     <div class="inner">
       <img src="${src}" alt="${cap || "Trustydruck Arbeitsprobe"}" loading="lazy">
       ${cap ? `<figcaption class="cap">${cap}</figcaption>` : ""}
@@ -33,18 +33,28 @@ export function proof(src, { cap = "", stamp = "Gut zum Druck", chan = "m", cont
 }
 
 export function ctaBand() {
-  return `<section class="section section--tight">
+  return `<section class="section section--tight ink-window">
     <div class="container">
       <div class="cta-band reveal">
         <span class="dots" aria-hidden="true"></span>
         ${kicker("Freigabe erteilen")}
-        <h2 class="display ink-title">Gemeinsam bringen wir Ihr <em>Unternehmen</em> voran!</h2>
-        <p>Geben Sie Ihrem Geschäft neuen Schwung. Kontaktieren Sie uns noch heute, um zu erfahren, wie wir Ihre Unternehmensbedürfnisse erfüllen können.</p>
+        <h2 class="display ink-title" data-split>Gemeinsam bringen wir Ihr <em class="glow-c">Unternehmen</em> voran!</h2>
+        <p class="reveal">Geben Sie Ihrem Geschäft neuen Schwung. Kontaktieren Sie uns noch heute, um zu erfahren, wie wir Ihre Unternehmensbedürfnisse erfüllen können.</p>
         <div class="btn-row">
-          <a class="btn btn--c btn--lg" href="kontakt.html">Angebot anfragen ${ICON.arrow}</a>
-          <a class="btn btn--wa btn--lg" href="${SITE.whatsapp}" target="_blank" rel="noopener noreferrer">${ICON.wa} WhatsApp</a>
+          <a class="btn btn--c btn--lg magnetic" href="kontakt.html">Angebot anfragen ${ICON.arrow}</a>
+          <a class="btn btn--wa btn--lg magnetic" href="${SITE.whatsapp}" target="_blank" rel="noopener noreferrer">${ICON.wa} WhatsApp</a>
         </div>
       </div>
+    </div>
+  </section>`;
+}
+
+// Full-bleed statement band — big kinetic line over the live ink.
+export function statementBand(lines) {
+  return `<section class="statement ink-window">
+    <div class="container">
+      <p class="st-eyebrow mono reveal">// Vier Farben, ein Handwerk</p>
+      <h2 class="st-head display" data-marquee-line>${lines}</h2>
     </div>
   </section>`;
 }

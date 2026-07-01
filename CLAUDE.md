@@ -25,6 +25,17 @@
 - **v3 „INK IN THE DARK"** (aktuell): dunkel, CMYK-Ink **glüht** (emissiv), GSAP+Lenis Motion,
   Preloader (Counter+Reveal), Custom-Cursor, magnetische Buttons, Parallax, Stats-Counter,
   großes Logo. Motion-Libs self-hosted in `assets/js/vendor/` (gsap, ScrollTrigger, lenis).
+- **v3.1 „WOW everywhere"**: Die Tinte ist EIN globaler, fixierter WebGL-Hintergrund
+  (`.ink-bg` in layout, `#ink`). Sektionen sind per Default **opak** (`background:var(--bg)`,
+  lesbar); „Ink-Fenster" (`.ink-window`: Hero, Statement-Band, CTA, Galerie, `.page-hero`)
+  sind transparent und lassen die Tinte durchleuchten. Pro-Sektion-Effekte (main.js, GSAP):
+  Wort-Reveals (`splitHeading`), Bild-Clip-Mask-Reveals, 3D-Tilt (.proof/.sep-cell),
+  Marquee-Skew nach Scroll-Tempo, Statement-Drift, **CMYK-Farbaufbau** (`[data-cmyk]`,
+  `--cmyk` von 1→0 gescrubbt), Prozess-Linie zeichnet sich. Preloader nur **einmal pro Session**
+  (`sessionStorage 'td_loaded'`, in head.js `html.preloaded` gesetzt → CSS blendet ihn sofort aus).
+- **Service-Bilder (neu, Unsplash, lizenzfrei):** `svc-leuchtreklame.jpg` (Neon),
+  `svc-print-medien.jpg` (Typo-Specimen), `svc-grafik.jpg` (Farbfächer/Logo-Studien).
+  Unsplash-Download zuverlässig via `unsplash.com/photos/<shortId>/download?w=1200` (nicht IDs raten!).
 
 ## Feedback-Details (v3, unbedingt beachten)
 - „Logo größer" heißt: nur die **Bildmarke** (`logo.png`, `.brand img`) — **NICHT** den

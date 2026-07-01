@@ -1,10 +1,11 @@
 import { ICON, SITE } from "../layout.mjs";
 import { SERVICES } from "../data.mjs";
-import { marquee, ctaBand, whyRow, kicker, sepLabel, proof, cutline } from "../components.mjs";
+import { marquee, ctaBand, whyRow, kicker, sepLabel, proof, cutline, statementBand } from "../components.mjs";
+
+const statement = statementBand('Wir bringen Ideen <em>zum Leuchten</em> — auf Textil, Papier und Fassade.');
 
 const hero = `
-<section class="hero" data-ink-stage>
-  <canvas id="ink" aria-hidden="true"></canvas>
+<section class="hero ink-window">
   <div class="hero-veil" aria-hidden="true"></div>
   <div class="density" aria-hidden="true">
     <span>Dichte</span><b class="d-c"></b><b class="d-m"></b><b class="d-y"></b><b class="d-k"></b>
@@ -139,9 +140,9 @@ const process = `
 </section>`;
 
 const gallery = `
-<section class="section section--tight" id="arbeiten">
+<section class="section section--tight ink-window" id="arbeiten">
   <div class="container">
-    <div class="section-head reveal">${kicker("Ausgewählte Arbeiten")}<h2 class="display ink-title">Frisch aus der Presse.</h2></div>
+    <div class="section-head reveal">${kicker("Ausgewählte Arbeiten")}<h2 class="display ink-title" data-split>Frisch aus der Presse.</h2></div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px" class="reveal">
       ${proof("assets/img/gallery-1.jpg", { cap: "Leuchtreklame", stamp: "01 / C", chan: "c" })}
       ${proof("assets/img/textildruck.jpg", { cap: "Textildruck", stamp: "02 / M", chan: "m" })}
@@ -154,5 +155,5 @@ export default {
   slug: "home",
   title: "Home",
   desc: "Trustydruck – Ihre Werbeagentur aus Meschede für hochwertige, individuelle Bedruckungslösungen: Leuchtreklame, Textildruck, Print & Medien und Grafik. Vier Farben, ein Handwerk.",
-  body: hero + marquee() + stats + about + why + separations + showcase + process + gallery + ctaBand(),
+  body: hero + marquee() + stats + about + why + separations + showcase + statement + process + gallery + ctaBand(),
 };

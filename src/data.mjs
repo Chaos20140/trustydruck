@@ -5,7 +5,7 @@ import { ICON } from "./layout.mjs";
 export const SERVICES = [
   {
     slug: "leuchtreklame", num: "01", icon: ICON.sign, chan: "c", channel: "Cyan",
-    title: "Leuchtreklame", img: "assets/img/leuchtreklame.png", fit: "cover", stamp: "Gut zum Druck",
+    title: "Leuchtreklame", img: "assets/img/svc-leuchtreklame.jpg", fit: "cover", stamp: "Gut zum Druck",
     lead: "Setzen Sie Ihre Marke ins richtige Licht!",
     short: "Wir gestalten und produzieren hochwertige Leuchtreklamen, die Ihre Botschaft bei Tag und Nacht perfekt präsentieren. Mit modernster LED-Technik und langlebigen Materialien sorgen wir dafür, dass Ihre Werbung immer auffällt und im besten Licht erstrahlt.",
     tags: ["LED-Technik", "Leuchtkästen", "Profilbuchstaben", "Tag & Nacht"],
@@ -31,7 +31,7 @@ export const SERVICES = [
   },
   {
     slug: "print-medien", num: "03", icon: ICON.printer, chan: "y", channel: "Yellow",
-    title: "Print & Medien", img: "assets/img/print-medien.png", fit: "contain", stamp: "Gut zum Druck",
+    title: "Print & Medien", img: "assets/img/svc-print-medien.jpg", fit: "cover", stamp: "Gut zum Druck",
     lead: "Hochwertige Druckprodukte für jeden Bedarf.",
     short: "Von Visitenkarten über Flyer bis hin zu großformatigen Bannern – wir bieten Ihnen alles, was Sie für Ihre Drucksachen benötigen. Unsere Druckprodukte zeichnen sich durch exzellente Qualität und schnelle Lieferung aus.",
     tags: ["Visitenkarten", "Flyer & Broschüren", "Banner", "Großformat"],
@@ -44,7 +44,7 @@ export const SERVICES = [
   },
   {
     slug: "grafik", num: "04", icon: ICON.spark, chan: "k", channel: "Key / Schwarz",
-    title: "Grafik & Logo", img: "assets/img/print-medien.png", fit: "contain", stamp: "Freigegeben",
+    title: "Grafik & Logo", img: "assets/img/svc-grafik.jpg", fit: "cover", stamp: "Freigegeben",
     lead: "Kreative Designs, die begeistern!",
     short: "Wir verwandeln Ihre Ideen in visuell ansprechende und professionelle Medien, die Ihre Zielgruppe ansprechen. Vom Logo über Broschüren bis hin zu digitalen Grafiken bieten wir maßgeschneiderte Lösungen, die Ihr Unternehmen perfekt widerspiegeln.",
     tags: ["Logo-Design", "Corporate Design", "Digitale Grafik", "Layout"],
