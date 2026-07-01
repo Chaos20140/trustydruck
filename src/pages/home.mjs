@@ -5,29 +5,47 @@ import { marquee, ctaBand, whyRow, kicker, sepLabel, proof, cutline } from "../c
 const hero = `
 <section class="hero" data-ink-stage>
   <canvas id="ink" aria-hidden="true"></canvas>
-  <div class="hero-topfade" aria-hidden="true"></div>
+  <div class="hero-veil" aria-hidden="true"></div>
   <div class="density" aria-hidden="true">
     <span>Dichte</span><b class="d-c"></b><b class="d-m"></b><b class="d-y"></b><b class="d-k"></b>
   </div>
   <span class="hero-hint"><i></i>Bewege den Cursor — du druckst.</span>
   <div class="container">
-    <div class="hero-copy reveal">
-      <span class="tick t1"></span><span class="tick t2"></span><span class="tick t3"></span><span class="tick t4"></span>
-      ${kicker("Werbeagentur · Meschede · 4/4-farbig")}
-      <h1 class="display ink-title over-ink">Ihre Agentur<span class="l2">für <em>Werbung</em>.</span></h1>
-      <p class="lede">Willkommen bei Trustydruck – Ihrer Werbeagentur für hochwertige und individuelle Bedruckungslösungen. Von Leuchtreklame über Textildruck bis Print &amp; Medien bringen wir Ihre Ideen zum Leben.</p>
-      <div class="btn-row">
-        <a class="btn btn--c btn--lg" href="leistungen.html">Leistungen entdecken ${ICON.arrow}</a>
-        <a class="btn btn--ghost btn--lg" href="kontakt.html">Kontakt aufnehmen</a>
-        <button class="btn btn--ghost btn--lg" type="button" data-reink aria-label="Neu einfärben">Neu einfärben</button>
+    <div class="hero-copy">
+      <div class="hero-lockup" data-hero-fade>
+        <img src="assets/img/logo.png" alt="TRUSTYDRUCK Logo">
+        <span class="hl-txt">Print &amp; Media —<br>Meschede · Sauerland · seit Tag&nbsp;eins vierfarbig.</span>
       </div>
-      <div class="hero-badges">
+      ${kicker("Werbeagentur · 4/4-farbig")}
+      <h1 class="display ink-title">
+        <span class="line"><span>Ihre Agentur</span></span>
+        <span class="line"><span>für <em class="glow-m">Werbung</em>.</span></span>
+      </h1>
+      <p class="lede" data-hero-fade>Willkommen bei Trustydruck – Ihrer Werbeagentur für hochwertige und individuelle Bedruckungslösungen. Von Leuchtreklame über Textildruck bis Print &amp; Medien bringen wir Ihre Ideen zum Leben.</p>
+      <div class="btn-row" data-hero-fade>
+        <a class="btn btn--c btn--lg magnetic" href="leistungen.html">Leistungen entdecken ${ICON.arrow}</a>
+        <a class="btn btn--ghost btn--lg magnetic" href="kontakt.html">Kontakt aufnehmen</a>
+        <button class="btn btn--ghost btn--lg magnetic" type="button" data-reink aria-label="Neu einfärben">Neu einfärben</button>
+      </div>
+      <div class="hero-badges" data-hero-fade>
         <span class="chip"><i style="background:var(--c)"></i>LED-Leuchtreklame</span>
         <span class="chip"><i style="background:var(--m)"></i>Siebdruck &amp; Stickerei</span>
         <span class="chip"><i style="background:var(--y)"></i>Banner &amp; Großformat</span>
         <span class="chip"><i style="background:var(--k)"></i>Grafik &amp; Logo</span>
       </div>
-      <div class="scroll-cue"><span class="ln"></span>Scrollen</div>
+      <div class="scroll-cue" data-hero-fade><span class="ln"></span>Scrollen</div>
+    </div>
+  </div>
+</section>`;
+
+const stats = `
+<section class="section--tight" style="padding-top:clamp(30px,4vw,50px)">
+  <div class="container">
+    <div class="stats reveal">
+      <div class="stat"><div class="n" data-count="4">0</div><div class="k">Farben · ein Handwerk</div></div>
+      <div class="stat"><div class="n" data-count="100" data-suffix="%">0</div><div class="k">individuell gefertigt</div></div>
+      <div class="stat"><div class="n" data-count="3">0</div><div class="k">Drucktechniken im Textil</div></div>
+      <div class="stat"><div class="n">∞</div><div class="k">Ideen für Ihre Marke</div></div>
     </div>
   </div>
 </section>`;
@@ -43,7 +61,7 @@ const about = `
         <p style="margin-top:16px;color:var(--ink-soft)">Von einzigartigen Designs bis hin zu Firmenlogos und Werbebotschaften – wir bringen Ihre Ideen zum Leben. Mit einem engagierten Team und einem Fokus auf Qualität und Kundenzufriedenheit bieten wir einen herausragenden Service und einzigartige Produkte.</p>
         <div class="btn-row" style="margin-top:28px"><a class="arrow" href="ueber-uns.html">Mehr über uns ${ICON.arrow}</a></div>
       </div>
-      <div class="reveal" data-d="2">${proof("assets/img/leuchtreklame.png", { cap: "LED · Leuchtbuchstaben", stamp: "Gut zum Druck", chan: "c" })}</div>
+      <div class="reveal" data-d="2" data-parallax>${proof("assets/img/leuchtreklame.png", { cap: "LED · Leuchtbuchstaben", stamp: "Gut zum Druck", chan: "c" })}</div>
     </div>
   </div>
 </section>`;
@@ -87,7 +105,7 @@ const showcase = `
 <section class="section section--tight">
   <div class="container">
     <div class="split split--rev">
-      <div class="reveal">${proof("assets/img/gallery-1.jpg", { cap: "Leuchtreklame · Fassade", stamp: "Freigegeben", chan: "c" })}</div>
+      <div class="reveal" data-parallax>${proof("assets/img/gallery-1.jpg", { cap: "Leuchtreklame · Fassade", stamp: "Freigegeben", chan: "c" })}</div>
       <div class="reveal" data-d="2">
         ${sepLabel("01", "Cyan", "c")}
         <h2 class="display ink-title">Ihre Marke, im <em style="font-style:normal;color:var(--c)">besten Licht</em>.</h2>
@@ -136,5 +154,5 @@ export default {
   slug: "home",
   title: "Home",
   desc: "Trustydruck – Ihre Werbeagentur aus Meschede für hochwertige, individuelle Bedruckungslösungen: Leuchtreklame, Textildruck, Print & Medien und Grafik. Vier Farben, ein Handwerk.",
-  body: hero + marquee() + about + why + separations + showcase + process + gallery + ctaBand(),
+  body: hero + marquee() + stats + about + why + separations + showcase + process + gallery + ctaBand(),
 };

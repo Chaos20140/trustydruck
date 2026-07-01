@@ -85,6 +85,14 @@ function head({ title, desc, slug }) {
 ${slug === "home" ? jsonLd() : ""}
 </head>
 <body data-page="${slug}">
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="pl-inner">
+    <img class="pl-logo" src="assets/img/logo.png" alt="TRUSTYDRUCK" width="140" height="84">
+    <div class="pl-bar"><span></span></div>
+    <div class="pl-count"><b>0</b>%</div>
+    <div class="pl-word">Vier Farben · ein Handwerk</div>
+  </div>
+</div>
 <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
 <div class="slug">
   <span class="dot"><i style="background:#00aeef"></i><i style="background:#ec008c"></i><i style="background:#ffd200"></i><i style="background:#f4f1ea"></i>&nbsp; AUFTRAG: WEBSITE · 4/4-FARBIG</span>
@@ -123,6 +131,10 @@ function header(active) {
 function footer() {
   return `<footer class="site-footer">
   <div class="container">
+    <div class="footer-logo reveal">
+      <img src="assets/img/logo.png" alt="TRUSTYDRUCK Logo" width="160" height="96">
+      <div class="fl-wm"><b>TRUSTY</b><span>DRUCK</span></div>
+    </div>
     <div class="footer-top">
       <div class="footer-brand">
         ${brand()}
@@ -189,6 +201,10 @@ export function layout({ title, desc, slug, body }) {
     footer() +
     actionBar() +
     cookie() +
-    `<script src="assets/js/ink.js"></script>\n<script src="assets/js/main.js"></script>\n</body>\n</html>`
+    `<script src="assets/js/vendor/gsap.min.js"></script>\n` +
+    `<script src="assets/js/vendor/ScrollTrigger.min.js"></script>\n` +
+    `<script src="assets/js/vendor/lenis.min.js"></script>\n` +
+    `<script src="assets/js/ink.js"></script>\n` +
+    `<script src="assets/js/main.js"></script>\n</body>\n</html>`
   );
 }

@@ -23,6 +23,14 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"TRUSTYDRUCK – PRINT & MEDIA","description":"Werbeagentur für hochwertige und individuelle Bedruckungslösungen: Leuchtreklame, Textildruck, Print & Medien, Grafik & Logo.","url":"https://chaos20140.github.io/trustydruck","telephone":"+4915211878724","email":"info@trustydruck.de","address":{"@type":"PostalAddress","streetAddress":"Ruhrstraße 7","postalCode":"59872","addressLocality":"Meschede","addressCountry":"DE"},"areaServed":"Meschede, Sauerland, NRW","sameAs":["https://www.instagram.com/trustydruck"],"makesOffer":["Leuchtreklame","Textildruck","Print & Medien","Grafikdesign"]}</script>
 </head>
 <body data-page="home">
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="pl-inner">
+    <img class="pl-logo" src="assets/img/logo.png" alt="TRUSTYDRUCK" width="140" height="84">
+    <div class="pl-bar"><span></span></div>
+    <div class="pl-count"><b>0</b>%</div>
+    <div class="pl-word">Vier Farben · ein Handwerk</div>
+  </div>
+</div>
 <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
 <div class="slug">
   <span class="dot"><i style="background:#00aeef"></i><i style="background:#ec008c"></i><i style="background:#ffd200"></i><i style="background:#f4f1ea"></i>&nbsp; AUFTRAG: WEBSITE · 4/4-FARBIG</span>
@@ -56,32 +64,48 @@
 </div><main id="main">
 <section class="hero" data-ink-stage>
   <canvas id="ink" aria-hidden="true"></canvas>
-  <div class="hero-topfade" aria-hidden="true"></div>
+  <div class="hero-veil" aria-hidden="true"></div>
   <div class="density" aria-hidden="true">
     <span>Dichte</span><b class="d-c"></b><b class="d-m"></b><b class="d-y"></b><b class="d-k"></b>
   </div>
   <span class="hero-hint"><i></i>Bewege den Cursor — du druckst.</span>
   <div class="container">
-    <div class="hero-copy reveal">
-      <span class="tick t1"></span><span class="tick t2"></span><span class="tick t3"></span><span class="tick t4"></span>
-      <span class="kicker"><span class="sw sw-c"></span><span class="sw sw-m"></span><span class="sw sw-y"></span><span class="sw sw-k"></span>Werbeagentur · Meschede · 4/4-farbig</span>
-      <h1 class="display ink-title over-ink">Ihre Agentur<span class="l2">für <em>Werbung</em>.</span></h1>
-      <p class="lede">Willkommen bei Trustydruck – Ihrer Werbeagentur für hochwertige und individuelle Bedruckungslösungen. Von Leuchtreklame über Textildruck bis Print &amp; Medien bringen wir Ihre Ideen zum Leben.</p>
-      <div class="btn-row">
-        <a class="btn btn--c btn--lg" href="leistungen.html">Leistungen entdecken <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn--ghost btn--lg" href="kontakt.html">Kontakt aufnehmen</a>
-        <button class="btn btn--ghost btn--lg" type="button" data-reink aria-label="Neu einfärben">Neu einfärben</button>
+    <div class="hero-copy">
+      <div class="hero-lockup" data-hero-fade>
+        <img src="assets/img/logo.png" alt="TRUSTYDRUCK Logo">
+        <span class="hl-txt">Print &amp; Media —<br>Meschede · Sauerland · seit Tag&nbsp;eins vierfarbig.</span>
       </div>
-      <div class="hero-badges">
+      <span class="kicker"><span class="sw sw-c"></span><span class="sw sw-m"></span><span class="sw sw-y"></span><span class="sw sw-k"></span>Werbeagentur · 4/4-farbig</span>
+      <h1 class="display ink-title">
+        <span class="line"><span>Ihre Agentur</span></span>
+        <span class="line"><span>für <em class="glow-m">Werbung</em>.</span></span>
+      </h1>
+      <p class="lede" data-hero-fade>Willkommen bei Trustydruck – Ihrer Werbeagentur für hochwertige und individuelle Bedruckungslösungen. Von Leuchtreklame über Textildruck bis Print &amp; Medien bringen wir Ihre Ideen zum Leben.</p>
+      <div class="btn-row" data-hero-fade>
+        <a class="btn btn--c btn--lg magnetic" href="leistungen.html">Leistungen entdecken <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--ghost btn--lg magnetic" href="kontakt.html">Kontakt aufnehmen</a>
+        <button class="btn btn--ghost btn--lg magnetic" type="button" data-reink aria-label="Neu einfärben">Neu einfärben</button>
+      </div>
+      <div class="hero-badges" data-hero-fade>
         <span class="chip"><i style="background:var(--c)"></i>LED-Leuchtreklame</span>
         <span class="chip"><i style="background:var(--m)"></i>Siebdruck &amp; Stickerei</span>
         <span class="chip"><i style="background:var(--y)"></i>Banner &amp; Großformat</span>
         <span class="chip"><i style="background:var(--k)"></i>Grafik &amp; Logo</span>
       </div>
-      <div class="scroll-cue"><span class="ln"></span>Scrollen</div>
+      <div class="scroll-cue" data-hero-fade><span class="ln"></span>Scrollen</div>
     </div>
   </div>
 </section><section class="marquee" aria-hidden="true"><div class="marquee-track"><span>Leuchtreklame</span><span>Textildruck</span><span>Siebdruck</span><span>Stickerei</span><span>Visitenkarten</span><span>Flyer</span><span>Banner</span><span>Logo-Design</span><span>Corporate Design</span><span>Beschriftung</span><span>Großformat</span><span>Werbetechnik</span><span>Firmenkleidung</span><span>Vier Farben</span><span>Leuchtreklame</span><span>Textildruck</span><span>Siebdruck</span><span>Stickerei</span><span>Visitenkarten</span><span>Flyer</span><span>Banner</span><span>Logo-Design</span><span>Corporate Design</span><span>Beschriftung</span><span>Großformat</span><span>Werbetechnik</span><span>Firmenkleidung</span><span>Vier Farben</span></div></section>
+<section class="section--tight" style="padding-top:clamp(30px,4vw,50px)">
+  <div class="container">
+    <div class="stats reveal">
+      <div class="stat"><div class="n" data-count="4">0</div><div class="k">Farben · ein Handwerk</div></div>
+      <div class="stat"><div class="n" data-count="100" data-suffix="%">0</div><div class="k">individuell gefertigt</div></div>
+      <div class="stat"><div class="n" data-count="3">0</div><div class="k">Drucktechniken im Textil</div></div>
+      <div class="stat"><div class="n">∞</div><div class="k">Ideen für Ihre Marke</div></div>
+    </div>
+  </div>
+</section>
 <section class="section" id="ueber">
   <div class="container">
     <div class="split">
@@ -92,7 +116,7 @@
         <p style="margin-top:16px;color:var(--ink-soft)">Von einzigartigen Designs bis hin zu Firmenlogos und Werbebotschaften – wir bringen Ihre Ideen zum Leben. Mit einem engagierten Team und einem Fokus auf Qualität und Kundenzufriedenheit bieten wir einen herausragenden Service und einzigartige Produkte.</p>
         <div class="btn-row" style="margin-top:28px"><a class="arrow" href="ueber-uns.html">Mehr über uns <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </div>
-      <div class="reveal" data-d="2"><figure class="proof chan-c">
+      <div class="reveal" data-d="2" data-parallax><figure class="proof chan-c">
     <div class="inner">
       <img src="assets/img/leuchtreklame.png" alt="LED · Leuchtbuchstaben" loading="lazy">
       <figcaption class="cap">LED · Leuchtbuchstaben</figcaption>
@@ -175,7 +199,7 @@
 <section class="section section--tight">
   <div class="container">
     <div class="split split--rev">
-      <div class="reveal"><figure class="proof chan-c">
+      <div class="reveal" data-parallax><figure class="proof chan-c">
     <div class="inner">
       <img src="assets/img/gallery-1.jpg" alt="Leuchtreklame · Fassade" loading="lazy">
       <figcaption class="cap">Leuchtreklame · Fassade</figcaption>
@@ -251,6 +275,10 @@
     </div>
   </section></main><footer class="site-footer">
   <div class="container">
+    <div class="footer-logo reveal">
+      <img src="assets/img/logo.png" alt="TRUSTYDRUCK Logo" width="160" height="96">
+      <div class="fl-wm"><b>TRUSTY</b><span>DRUCK</span></div>
+    </div>
     <div class="footer-top">
       <div class="footer-brand">
         <a class="brand " href="index.html" aria-label="TRUSTYDRUCK Startseite">
@@ -301,7 +329,10 @@
       <button class="btn btn--c" data-cookie>Verstanden</button>
       <a class="btn btn--ghost" href="datenschutz.html">Einstellungen</a>
     </div>
-  </div><script src="assets/js/ink.js"></script>
+  </div><script src="assets/js/vendor/gsap.min.js"></script>
+<script src="assets/js/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/js/vendor/lenis.min.js"></script>
+<script src="assets/js/ink.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

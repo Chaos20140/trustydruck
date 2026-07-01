@@ -21,7 +21,7 @@ const story = `
         <p class="lede" style="margin-top:20px">Wir bieten unseren Kunden erstklassige Drucke auf einer Vielzahl von Textilien an, sowie professionelle Werbung für Ihr Unternehmen. Unsere Leidenschaft für kreative Gestaltung und unsere modernen Drucktechniken ermöglichen es uns, maßgeschneiderte Lösungen für Unternehmen, Schulen, Vereine und Privatkunden anzubieten.</p>
         <p style="margin-top:16px;color:var(--ink-soft)">Von einzigartigen Designs bis hin zu Firmenlogos und Werbebotschaften – wir bringen Ihre Ideen zum Leben. Mit einem engagierten Team und einem Fokus auf Qualität und Kundenzufriedenheit sind wir stolz darauf, unseren Kunden einen herausragenden Service und einzigartige Produkte zu bieten.</p>
       </div>
-      <div class="reveal" data-d="2">${proof("assets/img/gallery-1.jpg", { cap: "Trustydruck · Leuchtreklame", stamp: "Freigegeben", chan: "c" })}</div>
+      <div class="reveal" data-d="2" data-parallax>${proof("assets/img/gallery-1.jpg", { cap: "Trustydruck · Leuchtreklame", stamp: "Freigegeben", chan: "c" })}</div>
     </div>
   </div>
 </section>`;

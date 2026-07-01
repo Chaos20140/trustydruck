@@ -31,8 +31,8 @@
   const SIM = lowMem ? 80 : small ? 110 : 160;   // velocity grid
   const DYE = lowMem ? 320 : small ? 448 : 640;  // dye grid
   const PRESSURE_ITER = small ? 14 : 20;
-  const VELOCITY_DISS = 0.9;          // damp motion so ink pools, not explodes
-  const DYE_DISS = 0.82;              // ink stays wet a few seconds, then "dries" back to paper
+  const VELOCITY_DISS = 0.85;         // damp motion so ink pools, not explodes
+  const DYE_DISS = 0.5;               // on black the glow should linger a while
   const PRESSURE_DECAY = 0.82;
   const CURL = 12;                    // vorticity — organic swirl (gentle)
   const SPLAT = 0.0011;               // splat radius (relative)
@@ -134,28 +134,32 @@
     clear: program(VERT, `${F_HEAD}
       uniform sampler2D uTex; uniform float value;
       void main(){ o=texture(uTex,vUv)*value; }`),
-    // subtractive CMY display over warm paper + wet specular + grain + vignette
+    // dark EMISSIVE display: CMY ink glows in the black + wet specular + grain + vignette
     display: program(VERT, `${F_HEAD}
-      uniform sampler2D uDye; uniform vec2 texel; uniform vec3 paper; uniform float time; uniform float grain;
+      uniform sampler2D uDye; uniform vec2 texel; uniform float time; uniform float grain;
       float hash(vec2 p){ return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453); }
       void main(){
         vec3 d = max(texture(uDye,vUv).xyz, 0.0);
-        // Beer-Lambert subtractive: C absorbs R, M absorbs G, Y absorbs B
-        float k = 2.05;
-        vec3 col = paper * exp(-d * k);
-        // wet specular: highlight along ink gradient (edges of a wet pool)
+        // emissive CMYK: cyan/magenta/yellow inks glow; overlaps blend toward white light
+        vec3 cyanE = vec3(0.00, 0.80, 1.00);
+        vec3 magE  = vec3(1.00, 0.14, 0.52);
+        vec3 yelE  = vec3(1.00, 0.82, 0.16);
+        vec3 glow = cyanE*d.r + magE*d.g + yelE*d.b;
+        glow = glow / (1.0 + glow*0.5);                  // soft tonemap, keep saturation
+        vec3 bg = vec3(0.023,0.024,0.031);
+        vec3 col = bg + glow;
+        // wet specular: bright rim along the ink gradient (edge of a wet pool)
         float dl=length(texture(uDye,vL).xyz), dr=length(texture(uDye,vR).xyz);
         float dt=length(texture(uDye,vT).xyz), db=length(texture(uDye,vB).xyz);
         vec2 g = vec2(dr-dl, dt-db);
-        float edge = clamp(length(g)*2.2, 0.0, 1.0);
-        float ink = clamp(length(d)*0.9, 0.0, 1.0);
-        col += edge*ink*vec3(0.16,0.17,0.19);            // glossy wet rim
-        col -= edge*ink*vec3(0.05);                       // and a touch of shadow
-        // paper grain
+        float edge = clamp(length(g)*2.0, 0.0, 1.0);
+        float ink = clamp(length(d)*0.7, 0.0, 1.0);
+        col += edge*ink*vec3(0.5,0.55,0.62);             // glossy wet highlight
+        // fine grain
         float n = hash(vUv*vec2(1400.0,900.0)+time*0.01);
         col += (n-0.5)*grain;
-        // subtle vignette
-        vec2 q = vUv-0.5; col *= 1.0 - dot(q,q)*0.35;
+        // vignette to sink the edges into black
+        vec2 q = vUv-0.5; col *= 1.0 - dot(q,q)*0.55;
         o = vec4(clamp(col,0.0,1.0), 1.0);
       }`),
   };
@@ -293,13 +297,11 @@
     draw(dye.w); dye.swap();
   }
 
-  const paper = [0.960, 0.945, 0.905];
   function render() {
     bindQuad(P.display);
     gl.uniform2f(P.display.u.texel, dye.r.texel[0], dye.r.texel[1]);
-    gl.uniform3f(P.display.u.paper, paper[0], paper[1], paper[2]);
     gl.uniform1f(P.display.u.time, perfNow());
-    gl.uniform1f(P.display.u.grain, 0.05);
+    gl.uniform1f(P.display.u.grain, 0.035);
     gl.uniform1i(P.display.u.uDye, tex(0, dye.r.tex));
     draw(null);
   }
