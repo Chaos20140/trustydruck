@@ -46,6 +46,26 @@
 - **Service-Bilder (neu, Unsplash, lizenzfrei):** `svc-leuchtreklame.jpg` (Neon),
   `svc-print-medien.jpg` (Typo-Specimen), `svc-grafik.jpg` (Farbfächer/Logo-Studien).
   Unsplash-Download zuverlässig via `unsplash.com/photos/<shortId>/download?w=1200` (nicht IDs raten!).
+- **v5 „FADENZÄHLER" (aktuell):** 3D-Signatur im Hero (Kunde wollte „echte Awwwards + 3D").
+  Konzept aus Multi-Agent-Design-Panel gewählt. `assets/js/loupe.js` (self-hosted Three.js
+  `vendor/three.min.js` **r0.148.0 UMD** → `window.THREE`, KEIN CDN, KEIN ESM-bare-specifier):
+  Hero-Bild ruht als schwarzes Instanced-Halbtonraster (InstancedBufferGeometry, ~44×N Zylinder,
+  VTF-Luminanz), unter dem Cursor hebt sich ein „Fadenzähler" (Lupe) mit **rotem Fokusring**,
+  die Punkte steigen als 3D-Pucks und entwickeln Farbe/„in Register". Spring-Cursor, Idle-Drift,
+  Klick-Impression, Register-Snap (RGB-Versatz 1→0 beim 1. Sichtbarwerden). **Nur Desktop**
+  (`pointer:fine` + `width>=900` + WebGL2 + !reduced + deviceMemory>2); lazy-inject three erst
+  nach `load`+`requestIdleCallback` (LCP/Mobile unberührt, three lädt NICHT auf Handy).
+  `raster.js` bleibt als **2D-Fallback-Ebene** unter dem GL-Canvas: jeder Fehler/Watchdog-Teardown
+  entfernt nur den GL-Canvas → bewährtes 2D-Develop scheint durch. Test-Flag `?loupe=1` umgeht das
+  Pointer-Gate (Watchdog aus) für Headless-Screenshots. Weitere v5-Politur: Header-Logo größer
+  (56→76px), Footer-Bildmarke zurück über der Wortmarke, Statement = echtes Pull-Quote
+  (2-Zeilen, `text-wrap:balance`, Zitatzeichen, Service-Tags, `data-split`-Wort-Reveal),
+  `whyRow`→ full-width `whyBand` (große Karten, Ink-Fill-Hover), neue `reviews()`-Sektion
+  (Kundenstimmen). **Alle Gedankenstriche (– / —) aus der Fließtext-Copy entfernt** (Kundenwunsch:
+  wirken künstlich) — Marken-/Titel-Trenner bleiben.
+- **REVIEWS in `data.mjs` = PLATZHALTER** (Trustydruck hat KEIN öffentliches Google-/FB-
+  Bewertungsprofil, Recherche 06.07.2026). Vor Livegang durch echte Stimmen ersetzen —
+  gleiche Disziplin wie die `[…]`-Platzhalter im Impressum. KEINE Fake-Reviews erfinden (UWG!).
 
 ## Feedback-Details (v3, unbedingt beachten)
 - „Logo größer" heißt: nur die **Bildmarke** (`logo.png`, `.brand img`) — **NICHT** den

@@ -7,7 +7,7 @@ const pageHero = `
     <div class="crumbs reveal"><a href="index.html">Home</a> / Über uns</div>
     ${kicker("Wer wir sind")}
     <h1 class="display reveal" data-d="1">Ihre Ideen, <em>zum Leben</em> erweckt.</h1>
-    <p class="lede reveal" data-d="2" style="margin-top:22px">Willkommen bei Trustydruck – Ihrer Werbeagentur für hochwertige und individuelle Bedruckungslösungen aus dem Herzen des Sauerlands.</p>
+    <p class="lede reveal" data-d="2" style="margin-top:22px">Willkommen bei Trustydruck, Ihrer Werbeagentur für hochwertige und individuelle Bedruckungslösungen aus dem Herzen des Sauerlands.</p>
   </div>
 </section>`;
 
@@ -20,7 +20,7 @@ const story = `
         <div class="sep-label"><span class="no">00</span><span>Kolophon</span><span class="bar"></span></div>
         <h2 class="display split">Handwerk trifft <em>moderne Technik</em>.</h2>
         <p class="lede" style="margin-top:20px">Wir bieten unseren Kunden erstklassige Drucke auf einer Vielzahl von Textilien an, sowie professionelle Werbung für Ihr Unternehmen. Unsere Leidenschaft für kreative Gestaltung und unsere modernen Drucktechniken ermöglichen es uns, maßgeschneiderte Lösungen für Unternehmen, Schulen, Vereine und Privatkunden anzubieten.</p>
-        <p style="margin-top:16px;color:var(--ink-soft)">Von einzigartigen Designs bis hin zu Firmenlogos und Werbebotschaften – wir bringen Ihre Ideen zum Leben. Mit einem engagierten Team und einem Fokus auf Qualität und Kundenzufriedenheit sind wir stolz darauf, unseren Kunden einen herausragenden Service und einzigartige Produkte zu bieten.</p>
+        <p style="margin-top:16px;color:var(--ink-soft)">Von einzigartigen Designs bis hin zu Firmenlogos und Werbebotschaften, wir bringen Ihre Ideen zum Leben. Mit einem engagierten Team und einem Fokus auf Qualität und Kundenzufriedenheit sind wir stolz darauf, unseren Kunden einen herausragenden Service und einzigartige Produkte zu bieten.</p>
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@ const story = `
 
 const values = (() => {
   const items = [
-    ["Qualität", "Wir liefern nur Ergebnisse, hinter denen wir voll und ganz stehen – vom Material bis zur letzten Naht."],
+    ["Qualität", "Wir liefern nur Ergebnisse, hinter denen wir voll und ganz stehen, vom Material bis zur letzten Naht."],
     ["Kreativität", "Individuelle Designs statt Schablonen. Ihre Marke bekommt einen unverwechselbaren Auftritt."],
     ["Verlässlichkeit", "Feste Ansprechpartner, transparente Kommunikation und Termine, auf die Sie sich verlassen können."],
   ];
@@ -58,7 +58,7 @@ const location = `
       <div class="reveal">
         ${kicker("Standort")}
         <h2 class="display split">Zuhause im <em>Sauerland</em>.</h2>
-        <p class="lede" style="margin-top:20px">Sie finden uns in Meschede – persönlich, nahbar und immer für Sie erreichbar. Ob vor Ort oder digital: Wir begleiten Ihr Projekt von der ersten Idee bis zur fertigen Umsetzung.</p>
+        <p class="lede" style="margin-top:20px">Sie finden uns in Meschede, persönlich, nahbar und immer für Sie erreichbar. Ob vor Ort oder digital: Wir begleiten Ihr Projekt von der ersten Idee bis zur fertigen Umsetzung.</p>
         <div class="info-stack" style="margin-top:24px">
           <div class="info-card"><span class="ic">${ICON.pin}</span><div><div class="k">Adresse</div><div class="v">${SITE.street}, ${SITE.city}</div></div></div>
           <div class="info-card"><span class="ic">${ICON.phone}</span><div><div class="k">Telefon</div><div class="v"><a href="tel:${SITE.phoneHref}">${SITE.phoneDisplay}</a></div></div></div>

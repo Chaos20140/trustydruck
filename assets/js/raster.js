@@ -18,7 +18,7 @@
 
   stages.forEach((stage) => {
     const img = stage.querySelector("img");
-    const canvas = stage.querySelector("canvas");
+    const canvas = stage.querySelector("canvas.rc") || stage.querySelector("canvas");
     if (!img || !canvas) return;
     // reduced-motion / low memory → clean colour photo, no halftone
     if (reduce || lowMem) { stage.classList.add("raster-fallback"); return; }

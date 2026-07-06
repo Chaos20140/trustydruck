@@ -1,6 +1,6 @@
 // Reusable RASTER blocks.
 import { ICON, SITE } from "./layout.mjs";
-import { KEYWORDS } from "./data.mjs";
+import { KEYWORDS, REVIEWS } from "./data.mjs";
 
 export function kicker(text) {
   return `<span class="kicker"><span class="dot"></span>${text}</span>`;
@@ -23,10 +23,10 @@ export function controlStrip(label, no) {
 const marks = `<span class="marks"><span class="p1"></span><span class="p2"></span><span class="p3"></span><span class="p4"></span></span>`;
 
 // the interactive halftone-loupe figure (hero / feature)
-export function rasterFigure(src, { alt = "", mark = "Rasterprobe", hint = "Cursor = Lupe" } = {}) {
-  return `<figure class="raster" data-loupe>
+export function rasterFigure(src, { alt = "", mark = "Rasterprobe", hint = "Cursor = Lupe", gl = false } = {}) {
+  return `<figure class="raster" data-loupe${gl ? " data-loupe3d" : ""}>
     <img src="${src}" alt="${alt}" width="1000" height="1250">
-    <canvas aria-hidden="true"></canvas>
+    <canvas class="rc" aria-hidden="true"></canvas>
     <span class="rmark">${mark}</span>
     <span class="rhint">${hint}</span>
     ${marks}
@@ -46,8 +46,68 @@ export function proof(src, { cap = "", stamp = "Gut zum Druck", contain = false,
 export function statement(quoteHtml, by) {
   return `<section class="statement">
     <div class="container">
-      <p class="st-quote reveal">${quoteHtml}</p>
-      ${by ? `<p class="st-by reveal" data-d="1">${by}</p>` : ""}
+      <figure class="st-block">
+        <span class="st-quotemark" aria-hidden="true">&ldquo;</span>
+        <blockquote class="st-quote" data-split>${quoteHtml}</blockquote>
+        <figcaption class="st-foot reveal" data-d="1">
+          ${by ? `<span class="st-by">${by}</span>` : ""}
+          <ul class="st-themes" aria-hidden="true">
+            <li>Leuchtreklame</li><li>Textildruck</li><li>Print &amp; Medien</li><li>Grafik &amp; Logo</li>
+          </ul>
+        </figcaption>
+      </figure>
+    </div>
+  </section>`;
+}
+
+// full-width "why us" band with big print-plate cards (home)
+export function whyBand() {
+  const items = [
+    [ICON.star, "Höchste Qualität", "Erstklassige Materialien und moderne Drucktechnik für Ergebnisse, die überzeugen."],
+    [ICON.spark, "Individuell", "Maßgeschneiderte Lösungen von der ersten Idee bis zum fertigen Produkt."],
+    [ICON.bolt, "Schnelle Lieferung", "Verlässliche Termine, damit Ihre Werbung pünktlich zum Einsatz kommt."],
+    [ICON.shield, "Persönlicher Service", "Ein engagiertes Team und ein fester Ansprechpartner an Ihrer Seite."],
+  ];
+  return `<section class="section why">
+    <div class="container">
+      <div class="section-head reveal">
+        ${kicker("Warum Trustydruck")}
+        <h2 class="display split">Vier Versprechen, ein Anspruch.</h2>
+      </div>
+      <div class="why-grid">
+        ${items.map((it, i) => `<article class="why-card reveal" data-d="${i}">
+          <span class="wc-no">0${i + 1}</span>
+          <span class="wc-ic">${it[0]}</span>
+          <h3 class="wc-title">${it[1]}</h3>
+          <p class="wc-copy">${it[2]}</p>
+          <span class="wc-bar" aria-hidden="true"></span>
+        </article>`).join("")}
+      </div>
+    </div>
+  </section>`;
+}
+
+// customer voices ("Kundenstimmen")
+export function reviews() {
+  if (!REVIEWS || !REVIEWS.length) return "";
+  const stars = (n) => `<span class="rv-stars" aria-label="${n} von 5 Sternen">${Array.from({ length: 5 }, (_, i) => `<span class="${i < n ? "on" : ""}">${ICON.star}</span>`).join("")}</span>`;
+  return `<section class="section reviews">
+    <div class="container">
+      <div class="section-head reveal">
+        ${kicker("Kundenstimmen")}
+        <h2 class="display split">Was Kunden sagen.</h2>
+        <p class="lede">Echte Stimmen aus Meschede und dem Sauerland, von Vereinen bis Unternehmen.</p>
+      </div>
+      <div class="rv-grid">
+        ${REVIEWS.map((r, i) => `<figure class="rv-card reveal" data-d="${i % 3}">
+          ${stars(r.stars)}
+          <blockquote class="rv-quote">${r.quote}</blockquote>
+          <figcaption class="rv-by">
+            <span class="rv-avatar" aria-hidden="true">${(r.name || "?").trim().charAt(0)}</span>
+            <span class="rv-id"><span class="rv-name">${r.name}</span><span class="rv-role">${r.role}${r.area ? ` · ${r.area}` : ""}</span></span>
+          </figcaption>
+        </figure>`).join("")}
+      </div>
     </div>
   </section>`;
 }

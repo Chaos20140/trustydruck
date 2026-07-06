@@ -134,12 +134,13 @@ function footer() {
   return `<footer class="site-footer">
   <div class="container">
     <div class="footer-logo reveal">
+      <img class="fl-mark" src="assets/img/logo.png" alt="TRUSTYDRUCK Bildmarke" width="120" height="72">
       <div class="fl-wm"><b>TRUSTY</b><span>DRUCK</span></div>
       <p class="fl-sub">Print &amp; Media · Werbeagentur · Meschede · Sauerland</p>
     </div>
     <div class="footer-top">
       <div class="footer-brand">
-        <p>Ihre Werbeagentur aus Meschede für hochwertige, individuelle Bedruckungslösungen — Leuchtreklame, Textildruck, Print &amp; Medien und Grafik.</p>
+        <p>Ihre Werbeagentur aus Meschede für hochwertige, individuelle Bedruckungslösungen: Leuchtreklame, Textildruck, Print &amp; Medien und Grafik.</p>
         <div class="foot-social">
           <a href="${SITE.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">${ICON.instagram}</a>
           <a href="${SITE.whatsapp}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">${ICON.wa}</a>
@@ -185,7 +186,7 @@ function actionBar() {
 
 function cookie() {
   return `<div class="cookie" role="dialog" aria-label="Cookie-Hinweis">
-    <p>Diese Website nutzt nur technisch notwendige Speicherung sowie eine eingebettete Karte (Google Maps). Schriften werden lokal geladen – kein Tracking. Mehr in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+    <p>Diese Website nutzt nur technisch notwendige Speicherung sowie eine eingebettete Karte (Google Maps). Schriften werden lokal geladen, kein Tracking. Mehr in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
     <div class="row">
       <button class="btn btn--c" data-cookie>Verstanden</button>
       <a class="btn btn--ghost" href="datenschutz.html">Einstellungen</a>
@@ -204,6 +205,7 @@ export function layout({ title, desc, slug, body }) {
     `<script src="assets/js/vendor/gsap.min.js"></script>\n` +
     `<script src="assets/js/vendor/ScrollTrigger.min.js"></script>\n` +
     `<script src="assets/js/vendor/lenis.min.js"></script>\n` +
+    (slug === "home" ? `<script src="assets/js/loupe.js"></script>\n` : "") +
     `<script src="assets/js/raster.js"></script>\n` +
     `<script src="assets/js/main.js"></script>\n</body>\n</html>`
   );

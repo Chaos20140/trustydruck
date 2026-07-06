@@ -1,6 +1,6 @@
 import { ICON, SITE } from "../layout.mjs";
 import { SERVICES } from "../data.mjs";
-import { marquee, ctaBand, whyRow, kicker, statement, plate, rasterFigure } from "../components.mjs";
+import { marquee, ctaBand, whyBand, reviews, kicker, statement, plate, rasterFigure } from "../components.mjs";
 
 const hero = `
 <section class="hero">
@@ -12,7 +12,7 @@ const hero = `
           <span class="line"><span>Ihre Agentur</span></span>
           <span class="line"><span>für <em>Werbung</em>.</span></span>
         </h1>
-        <p class="lede" data-hero-fade>Willkommen bei Trustydruck – Ihrer Werbeagentur für hochwertige und individuelle Bedruckungslösungen. Von Leuchtreklame über Textildruck bis Print &amp; Medien bringen wir Ihre Ideen zum Leben.</p>
+        <p class="lede" data-hero-fade>Willkommen bei Trustydruck, Ihrer Werbeagentur für hochwertige und individuelle Bedruckungslösungen. Von Leuchtreklame über Textildruck bis Print &amp; Medien bringen wir Ihre Ideen zum Leben.</p>
         <div class="btn-row" data-hero-fade>
           <a class="btn magnetic" href="leistungen.html">Leistungen entdecken ${ICON.arrow}</a>
           <a class="btn btn--ghost magnetic" href="kontakt.html">Kontakt aufnehmen</a>
@@ -26,7 +26,7 @@ const hero = `
         <div class="scroll-cue" data-hero-fade><span class="ln"></span>Scrollen &amp; entdecken</div>
       </div>
       <div class="hero-media" data-hero-fade>
-        ${rasterFigure("assets/img/gallery-1.jpg", { alt: "Beleuchtete Trustydruck-Leuchtreklame", mark: "Andruck № 01", hint: "Hover zum Entwickeln" })}
+        ${rasterFigure("assets/img/gallery-1.jpg", { alt: "Beleuchtete Trustydruck-Leuchtreklame", mark: "Andruck № 01", hint: "Fadenzähler · bewegen", gl: true })}
       </div>
     </div>
   </div>
@@ -51,11 +51,12 @@ const about = `
       <div class="reveal">
         ${kicker("Über Trustydruck")}
         <h2 class="display split">Leidenschaft fürs <em>Handwerk</em>.</h2>
-        <p class="lede" style="margin-top:22px">Unsere Leidenschaft für kreative Gestaltung und unsere modernen Drucktechniken ermöglichen es uns, maßgeschneiderte Lösungen für Unternehmen, Schulen, Vereine und Privatkunden anzubieten.</p>
-        <p style="margin-top:16px;color:var(--ink-soft)">Von einzigartigen Designs bis hin zu Firmenlogos und Werbebotschaften – wir bringen Ihre Ideen zum Leben. Mit einem engagierten Team und einem Fokus auf Qualität und Kundenzufriedenheit bieten wir einen herausragenden Service und einzigartige Produkte.</p>
+      </div>
+      <div class="reveal" data-d="1">
+        <p class="lede">Unsere Leidenschaft für kreative Gestaltung und unsere modernen Drucktechniken ermöglichen es uns, maßgeschneiderte Lösungen für Unternehmen, Schulen, Vereine und Privatkunden anzubieten.</p>
+        <p style="margin-top:16px;color:var(--ink-soft)">Von einzigartigen Designs bis hin zu Firmenlogos und Werbebotschaften bringen wir Ihre Ideen zum Leben. Mit einem engagierten Team und einem Fokus auf Qualität und Kundenzufriedenheit bieten wir einen herausragenden Service und einzigartige Produkte.</p>
         <div class="btn-row" style="margin-top:28px"><a class="link" href="ueber-uns.html">Mehr über uns ${ICON.arrow}</a></div>
       </div>
-      <div class="reveal" data-d="1">${whyRow()}</div>
     </div>
   </div>
 </section>`;
@@ -66,7 +67,7 @@ const servicesIntro = `
     <div class="section-head reveal">
       ${kicker("Vier Druckplatten")}
       <h2 class="display split">Alles aus einer Hand.</h2>
-      <p class="lede">Vier Kernbereiche – jede Leistung eine eigene Platte. Zusammen ergeben sie das perfekte Bild für Ihre Marke.</p>
+      <p class="lede">Vier Kernbereiche, jede Leistung eine eigene Platte. Zusammen ergeben sie das perfekte Bild für Ihre Marke.</p>
     </div>
   </div>
 </section>`;
@@ -76,9 +77,9 @@ const plates = SERVICES.map((s, i) => plate(s, i, false)).join("");
 export default {
   slug: "home",
   title: "Home",
-  desc: "Trustydruck – Ihre Werbeagentur aus Meschede für hochwertige, individuelle Bedruckungslösungen: Leuchtreklame, Textildruck, Print & Medien und Grafik. Gut zum Druck.",
+  desc: "Trustydruck, Ihre Werbeagentur aus Meschede für hochwertige, individuelle Bedruckungslösungen: Leuchtreklame, Textildruck, Print & Medien und Grafik. Gut zum Druck.",
   body:
     hero + marquee() + statsBand +
-    statement('Wir bringen Ideen <em>in Register</em> — auf Textil, Papier und Fassade.', "Trustydruck · Print & Media") +
-    servicesIntro + plates + about + ctaBand(),
+    statement('Wir bringen Ideen <em>in Register</em> auf Textil, Papier und Fassade.', "Trustydruck · Print &amp; Media") +
+    servicesIntro + plates + about + whyBand() + reviews() + ctaBand(),
 };

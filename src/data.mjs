@@ -10,7 +10,7 @@ export const SERVICES = [
     short: "Wir gestalten und produzieren hochwertige Leuchtreklamen, die Ihre Botschaft bei Tag und Nacht perfekt präsentieren. Mit modernster LED-Technik und langlebigen Materialien sorgen wir dafür, dass Ihre Werbung immer auffällt und im besten Licht erstrahlt.",
     tags: ["LED-Technik", "Leuchtkästen", "Profilbuchstaben", "Tag & Nacht"],
     features: [
-      ["Profil- & Leuchtbuchstaben", "Plastisch, hochwertig und weithin sichtbar – individuell für Ihre Fassade gefertigt."],
+      ["Profil- & Leuchtbuchstaben", "Plastisch, hochwertig und weithin sichtbar, individuell für Ihre Fassade gefertigt."],
       ["Leuchtkästen & Displays", "Homogen ausgeleuchtete Werbeflächen mit langlebiger LED-Technik."],
       ["Energieeffiziente LEDs", "Moderne Technik für maximale Wirkung bei minimalem Verbrauch."],
       ["Montage & Beratung", "Von der Planung über die Genehmigung bis zur fertigen Montage."],
@@ -20,10 +20,10 @@ export const SERVICES = [
     slug: "textildruck", num: "02", icon: ICON.shirt, chan: "m", channel: "Magenta",
     title: "Textildruck", img: "assets/img/textildruck.jpg", fit: "cover", stamp: "Freigegeben",
     lead: "Individueller Textildruck für jeden Anlass!",
-    short: "Ob Firmenkleidung, Vereinsbedarf oder persönliche Geschenke – wir bringen Ihre Ideen auf Textil. Mit hochwertigen Drucktechniken wie Siebdruck und Flexdruck sowie präziser Stickerei garantieren wir langanhaltende Ergebnisse, die überzeugen.",
+    short: "Ob Firmenkleidung, Vereinsbedarf oder persönliche Geschenke, wir bringen Ihre Ideen auf Textil. Mit hochwertigen Drucktechniken wie Siebdruck und Flexdruck sowie präziser Stickerei garantieren wir langanhaltende Ergebnisse, die überzeugen.",
     tags: ["Siebdruck", "Flexdruck", "Stickerei", "Firmenkleidung"],
     features: [
-      ["Siebdruck", "Brillante, deckende Farben – ideal für höhere Auflagen und kräftige Motive."],
+      ["Siebdruck", "Brillante, deckende Farben, ideal für höhere Auflagen und kräftige Motive."],
       ["Flex- & Flockdruck", "Perfekt für Namen, Nummern und kleine Serien mit sauberer Kante."],
       ["Stickerei", "Edel und langlebig für Polos, Caps, Jacken und Workwear."],
       ["Firmen- & Vereinsbedarf", "Einheitliche Teamkleidung, die Ihre Marke professionell trägt."],
@@ -33,7 +33,7 @@ export const SERVICES = [
     slug: "print-medien", num: "03", icon: ICON.printer, chan: "y", channel: "Yellow",
     title: "Print & Medien", img: "assets/img/svc-print-medien.jpg", fit: "cover", stamp: "Gut zum Druck",
     lead: "Hochwertige Druckprodukte für jeden Bedarf.",
-    short: "Von Visitenkarten über Flyer bis hin zu großformatigen Bannern – wir bieten Ihnen alles, was Sie für Ihre Drucksachen benötigen. Unsere Druckprodukte zeichnen sich durch exzellente Qualität und schnelle Lieferung aus.",
+    short: "Von Visitenkarten über Flyer bis hin zu großformatigen Bannern, wir bieten Ihnen alles, was Sie für Ihre Drucksachen benötigen. Unsere Druckprodukte zeichnen sich durch exzellente Qualität und schnelle Lieferung aus.",
     tags: ["Visitenkarten", "Flyer & Broschüren", "Banner", "Großformat"],
     features: [
       ["Visitenkarten & Flyer", "Hochwertige Veredelung, die in Erinnerung bleibt."],
@@ -52,7 +52,7 @@ export const SERVICES = [
       ["Logo & Markenidentität", "Ein prägnantes Zeichen, das Ihre Marke unverwechselbar macht."],
       ["Corporate Design", "Einheitliche Gestaltung über alle Werbemittel hinweg."],
       ["Digitale Grafiken", "Content für Social Media, Web und Präsentationen."],
-      ["Druckvorstufe", "Druckfertige Daten – perfekt vorbereitet für beste Ergebnisse."],
+      ["Druckvorstufe", "Druckfertige Daten, perfekt vorbereitet für beste Ergebnisse."],
     ],
   },
 ];
@@ -61,4 +61,17 @@ export const KEYWORDS = [
   "Leuchtreklame", "Textildruck", "Siebdruck", "Stickerei", "Visitenkarten",
   "Flyer", "Banner", "Logo-Design", "Corporate Design", "Beschriftung",
   "Großformat", "Werbetechnik", "Firmenkleidung", "Vier Farben",
+];
+
+// ⚠️  PLATZHALTER-KUNDENSTIMMEN — bitte vor dem Livegang durch ECHTE Bewertungen ersetzen.
+// Stand der Recherche (06.07.2026): Trustydruck hat kein öffentliches Google-/Facebook-
+// Bewertungsprofil, aus dem sich Rezensionen übernehmen ließen. Sobald echte Stimmen
+// vorliegen (Google, Instagram-DMs, WhatsApp), einfach Text/Name/Ort/Sterne hier eintragen.
+export const REVIEWS = [
+  { stars: 5, area: "Textildruck", name: "Markus K.", role: "Vereinsvorstand, Meschede", quote: "Unsere komplette Mannschaftsausstattung kam top verarbeitet und pünktlich zum Saisonstart. Der Siebdruck hält jede Wäsche aus." },
+  { stars: 5, area: "Leuchtreklame", name: "Sabrina L.", role: "Gastronomie, Bestwig", quote: "Der neue Leuchtkasten macht unser Lokal abends unübersehbar. Von der Planung bis zur Montage lief alles reibungslos." },
+  { stars: 5, area: "Grafik & Logo", name: "Julia B.", role: "Gründerin, Sauerland", quote: "Aus einer groben Idee ist ein Logo entstanden, das unsere Marke perfekt trifft. Ein sehr kreatives und geduldiges Team." },
+  { stars: 5, area: "Print & Medien", name: "Thomas W.", role: "Handwerksbetrieb, Arnsberg", quote: "Visitenkarten und Flyer in erstklassiger Qualität und richtig schnell geliefert. Genau so stellt man sich das vor." },
+  { stars: 5, area: "Textildruck", name: "Andrea P.", role: "Schulleitung, Meschede", quote: "Bestickte Poloshirts fürs Kollegium, sauber und hochwertig verarbeitet. Die persönliche Beratung war inklusive." },
+  { stars: 5, area: "Print & Medien", name: "Kevin S.", role: "Unternehmen, Olsberg", quote: "Banner und Großformat für unsere Messe, alles wetterfest und farbstark. Beim nächsten Auftrag sind wir wieder dabei." },
 ];

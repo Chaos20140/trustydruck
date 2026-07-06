@@ -8,7 +8,7 @@ const pageHero = `
     <div class="crumbs reveal"><a href="index.html">Home</a> / Kontakt</div>
     ${kicker("Auftrag erteilen")}
     <h1 class="display reveal" data-d="1">Lassen Sie uns <em>reden</em>.</h1>
-    <p class="lede reveal" data-d="2" style="margin-top:22px">Erzählen Sie uns von Ihrem Projekt – wir melden uns schnellstmöglich mit einem passenden Angebot. Ganz unverbindlich.</p>
+    <p class="lede reveal" data-d="2" style="margin-top:22px">Erzählen Sie uns von Ihrem Projekt, wir melden uns schnellstmöglich mit einem passenden Angebot. Ganz unverbindlich.</p>
   </div>
 </section>`;
 
@@ -44,7 +44,7 @@ const main = `
                 <option value="Sonstiges">Sonstiges</option>
               </select>
             </div>
-            <div class="field"><label for="message">Nachricht <span class="req">*</span></label><textarea id="message" name="message" placeholder="Beschreiben Sie kurz Ihr Vorhaben – Menge, Material, Wunschtermin …" required></textarea></div>
+            <div class="field"><label for="message">Nachricht <span class="req">*</span></label><textarea id="message" name="message" placeholder="Beschreiben Sie kurz Ihr Vorhaben, Menge, Material, Wunschtermin …" required></textarea></div>
             <label class="consent"><input type="checkbox" name="consent"><span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu.</span></label>
             <button class="btn btn--spot btn--block btn--lg magnetic" type="submit">Zum Druck freigeben ${ICON.arrow}</button>
             <p class="form-note">Das Formular öffnet Ihr E-Mail-Programm mit der fertig ausgefüllten Nachricht. Alternativ direkt: <a href="mailto:${SITE.email}" style="color:var(--spot)">${SITE.email}</a></p>
