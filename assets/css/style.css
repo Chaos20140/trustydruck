@@ -219,12 +219,12 @@ body.menu-open .burger span:nth-child(1){transform:rotate(45deg)}
 body.menu-open .burger span:nth-child(2){opacity:0}
 body.menu-open .burger span:nth-child(3){transform:rotate(-45deg)}
 
-.mobile-menu{position:fixed;inset:0;z-index:48;display:flex;flex-direction:column;justify-content:center;padding:90px 26px 40px;
+.mobile-menu{position:fixed;inset:0;z-index:48;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--header-h) + 44px) 26px 40px;
   background:radial-gradient(80vw 60vh at 80% 0,rgba(0,223,253,.12),transparent 60%),rgba(6,6,9,.98);backdrop-filter:blur(8px);
   transform:translateY(-100%);opacity:0;visibility:hidden;transition:transform .55s var(--ease),opacity .4s,visibility .4s}
 body.menu-open .mobile-menu{transform:translateY(0);opacity:1;visibility:visible}
 .mobile-menu nav{display:flex;flex-direction:column;gap:2px}
-.mobile-menu nav a{font-family:var(--f-display);text-transform:uppercase;font-size:clamp(2rem,11vw,3.4rem);
+.mobile-menu nav a{font-family:var(--f-display);text-transform:uppercase;font-size:clamp(1.7rem,9vw,2.9rem);
   padding:10px 0;border-bottom:1px solid var(--line-2);display:flex;align-items:baseline;gap:16px;transition:padding-left .3s var(--ease),color .2s}
 .mobile-menu nav a .idx{font-family:var(--f-mono);font-size:.8rem;color:var(--c)}
 .mobile-menu nav a:hover,.mobile-menu nav a.active{padding-left:10px;color:var(--c)}
@@ -487,13 +487,18 @@ html.gsap .reveal{opacity:0}
   .stats{gap:16px}
 }
 @media (max-width:860px){
+  :root{--header-h:80px}
   .nav,.header-cta .btn{display:none}
   .burger{display:flex}
+  .brand img,.site-header.scrolled .brand img{height:50px}
+  .brand .wm,.site-header.scrolled .brand .wm{font-size:1.35rem}
   .split{grid-template-columns:1fr;gap:34px}.split--rev .split-media{order:0}
   .contact-grid{grid-template-columns:1fr}
   .action-bar{display:flex}
   body{padding-bottom:56px}
   .hero-lockup{flex-direction:column;align-items:flex-start;gap:14px}
+  /* the menu covers the whole screen — hide the cookie note & action bar behind/over it */
+  body.menu-open .cookie,body.menu-open .action-bar{opacity:0;visibility:hidden;pointer-events:none}
 }
 @media (max-width:560px){
   .field-row{grid-template-columns:1fr}

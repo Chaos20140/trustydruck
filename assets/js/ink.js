@@ -32,7 +32,7 @@
   const DYE = lowMem ? 320 : small ? 448 : 640;  // dye grid
   const PRESSURE_ITER = small ? 14 : 20;
   const VELOCITY_DISS = 0.85;         // damp motion so ink pools, not explodes
-  const DYE_DISS = 0.5;               // on black the glow should linger a while
+  const DYE_DISS = 0.42;              // on black the glow should linger a while
   const PRESSURE_DECAY = 0.82;
   const CURL = 12;                    // vorticity — organic swirl (gentle)
   const SPLAT = 0.0011;               // splat radius (relative)
@@ -40,13 +40,15 @@
   const VCAP = 340;                   // clamp splat velocity magnitude
   const DPR = Math.min(devicePixelRatio || 1, 2);
 
-  // CMY ink loadout the "nib" cycles through (channel densities: r=C, g=M, b=Y)
-  const INKS = [
-    [1.0, 0.05, 0.0],  // Cyan
-    [0.05, 1.0, 0.06], // Magenta
-    [0.0, 0.06, 1.0],  // Yellow
-    [0.9, 0.55, 0.0],  // brand electric blue (C + a bit of M)
-    [0.85, 0.9, 0.0],  // over-ink pop
+  // Hue wheel through the CMYK gamut. At most TWO channels active per stop, so
+  // every stroke stays a vivid colour and never sums to white. (r=C, g=M, b=Y)
+  const HUE_STOPS = [
+    [1, 0, 0], // Cyan
+    [1, 1, 0], // Blue    (C+M)
+    [0, 1, 0], // Magenta
+    [0, 1, 1], // Red     (M+Y)
+    [0, 0, 1], // Yellow
+    [1, 0, 1], // Green   (C+Y)
   ];
 
   // ---------- gl helpers ----------
@@ -154,7 +156,7 @@
         vec2 g = vec2(dr-dl, dt-db);
         float edge = clamp(length(g)*2.0, 0.0, 1.0);
         float ink = clamp(length(d)*0.7, 0.0, 1.0);
-        col += edge*ink*vec3(0.5,0.55,0.62);             // glossy wet highlight
+        col += edge*ink*vec3(0.20,0.22,0.26);            // subtle wet highlight (kept low so hues stay saturated)
         // fine grain
         float n = hash(vUv*vec2(1400.0,900.0)+time*0.01);
         col += (n-0.5)*grain;
@@ -307,13 +309,16 @@
   }
 
   // ---------- pointer + auto ink ----------
-  let inkIdx = 0, lastInkSwap = 0;
+  let hue = 0;
   const pointer = { x: 0.5, y: 0.5, dx: 0, dy: 0, down: false, moved: false };
 
-  function currentInk(boost) {
-    const c = INKS[inkIdx];
-    const g = (boost || 10);
-    return [c[0] * g, c[1] * g, c[2] * g];
+  // interpolate the hue wheel → CMY densities at the given intensity
+  function inkAt(h, boost) {
+    h = ((h % 1) + 1) % 1;
+    const f = h * 6, i = Math.floor(f), t = f - i;
+    const a = HUE_STOPS[i % 6], b = HUE_STOPS[(i + 1) % 6];
+    const g = boost || 10;
+    return [(a[0] + (b[0] - a[0]) * t) * g, (a[1] + (b[1] - a[1]) * t) * g, (a[2] + (b[2] - a[2]) * t) * g];
   }
   function toUv(clientX, clientY) {
     const r = canvas.getBoundingClientRect();
@@ -336,10 +341,10 @@
   addEventListener("mouseup", () => { pointer.down = false; }, { passive: true });
 
   function burst(x, y) {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
       const a = Math.random() * 6.28, r = Math.random() * 0.03;
-      splat(x + Math.cos(a) * r, y + Math.sin(a) * r, Math.cos(a) * 130, Math.sin(a) * 130, currentInk(15));
-      inkIdx = (inkIdx + 1) % INKS.length;
+      hue += 0.17;
+      splat(x + Math.cos(a) * r, y + Math.sin(a) * r, Math.cos(a) * 130, Math.sin(a) * 130, inkAt(hue, 15));
     }
   }
 
@@ -357,8 +362,7 @@
     // opening "wet" fill so the wordmark emerges from ink
     const pts = [[0.34, 0.5], [0.52, 0.44], [0.66, 0.52], [0.46, 0.36], [0.6, 0.4]];
     pts.forEach((p, i) => {
-      inkIdx = i % INKS.length;
-      splat(p[0], p[1], (Math.random() - 0.5) * 80, (Math.random() - 0.5) * 80, currentInk(11));
+      splat(p[0], p[1], (Math.random() - 0.5) * 80, (Math.random() - 0.5) * 80, inkAt(i / pts.length, 11));
     });
     seeded = true;
   }
@@ -379,13 +383,11 @@
 
     if (!seeded) seed();
 
-    // ink loadout cycles so consecutive strokes mix
-    if (now - lastInkSwap > 900) { inkIdx = (inkIdx + 1) % INKS.length; lastInkSwap = now; }
-
-    // pointer painting
+    // pointer painting — the hue advances as you move, so the trail is multicolour
     if (pointer.moved && (Math.abs(pointer.dx) + Math.abs(pointer.dy) > 0.0002)) {
       const [vx, vy] = capVel(pointer.dx * FORCE, pointer.dy * FORCE);
-      splat(pointer.x, pointer.y, vx, vy, currentInk(pointer.down ? 16 : 11));
+      hue += Math.hypot(pointer.dx, pointer.dy) * 2.6 + 0.007;
+      splat(pointer.x, pointer.y, vx, vy, inkAt(hue, pointer.down ? 18 : 13));
       pointer.moved = false;
     }
 
@@ -395,8 +397,8 @@
       autoT = 0;
       const x = 0.12 + Math.random() * 0.76, y = 0.08 + Math.random() * 0.56;
       const ang = Math.random() * 6.28;
-      splat(x, y, Math.cos(ang) * 70, Math.sin(ang) * 70, currentInk(7));
-      inkIdx = (inkIdx + 1) % INKS.length;
+      hue += 0.13;
+      splat(x, y, Math.cos(ang) * 70, Math.sin(ang) * 70, inkAt(hue, 7));
     }
 
     step(dt);
