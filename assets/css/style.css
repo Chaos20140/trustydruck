@@ -51,6 +51,9 @@ ul{list-style:none}
 ::selection{background:var(--spot);color:var(--paper)}
 :focus-visible{outline:2px solid var(--spot);outline-offset:3px}
 
+/* faint print dot-grid so the paper isn't flat */
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.7;
+  background-image:radial-gradient(rgba(22,19,14,.05) 1px,transparent 1.6px);background-size:26px 26px}
 /* paper fibre grain */
 body::after{
   content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.55;mix-blend-mode:multiply;
@@ -77,8 +80,6 @@ html:not(.js) .preloader,html.preloaded .preloader{display:none}
 .pl-mark .g2{transform:translate(6px,4px);color:var(--spot);opacity:.4}
 .pl-sub{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);margin-top:16px;text-align:center}
 
-/* ---------- Loupe cursor ---------- */
-[data-loupe]{cursor:crosshair}
 
 /* ---------- Layout ---------- */
 .container{width:min(100% - 48px,var(--container));margin-inline:auto}
@@ -143,8 +144,8 @@ em{font-style:normal;color:var(--spot)}
 .btn:hover{transform:translateY(-2px);background:var(--spot);border-color:var(--spot);color:var(--paper);box-shadow:5px 5px 0 var(--ink)}
 .btn--spot{background:var(--spot);border-color:var(--spot);color:var(--paper)}
 .btn--spot:hover{background:var(--ink);border-color:var(--ink)}
-.btn--ghost{background:transparent;color:var(--ink)}
-.btn--ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn--ghost{background:var(--paper-2);color:var(--ink);border-color:var(--ink)}
+.btn--ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);box-shadow:5px 5px 0 var(--spot)}
 .btn--wa{background:transparent;color:var(--ink);border-color:var(--ink)}
 .btn--wa:hover{background:#1c8a4e;border-color:#1c8a4e;color:#fff;box-shadow:5px 5px 0 var(--ink)}
 .btn--lg{padding:19px 34px;font-size:.88rem}
@@ -212,14 +213,15 @@ body.menu-open .mobile-menu{transform:translateY(0);opacity:1;visibility:visible
 
 /* ---------- Raster figure (halftone loupe) ---------- */
 .raster{position:relative;overflow:hidden;background:var(--paper);border:1px solid var(--ink);aspect-ratio:4/5}
-.raster img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
-.raster canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .5s}
+.raster img{width:100%;height:100%;object-fit:cover}
+.raster canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .6s var(--ease)}
 .raster.raster-on canvas{opacity:1}
-.raster.raster-on img{visibility:hidden}
+.raster.raster-on:hover canvas,.raster.raster-on.developed canvas{opacity:0}
 .raster.raster-fallback canvas{display:none}
-.raster.raster-fallback img{filter:none}
 .raster .rmark{position:absolute;left:12px;top:12px;z-index:2;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:var(--paper);padding:5px 9px;border:1px solid var(--ink)}
-.raster .rhint{position:absolute;right:12px;bottom:12px;z-index:2;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--spot);background:var(--paper);padding:5px 9px;border:1px solid var(--spot)}
+.raster .rhint{position:absolute;right:12px;bottom:12px;z-index:2;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--spot);background:var(--paper);padding:5px 9px;border:1px solid var(--spot);transition:opacity .4s}
+.raster.raster-on:hover .rhint{opacity:0}
+@media (pointer:coarse){.raster .rhint{display:none}}
 .raster .marks span{position:absolute;width:11px;height:11px;pointer-events:none;z-index:2}
 .raster .marks span::before,.raster .marks span::after{content:"";position:absolute;background:var(--ink)}
 .raster .marks span::before{width:1px;height:100%}.raster .marks span::after{height:1px;width:100%}
@@ -346,8 +348,9 @@ body.menu-open .mobile-menu{transform:translateY(0);opacity:1;visibility:visible
 .site-footer{background:var(--ink);color:var(--paper);padding:clamp(60px,8vw,110px) 0 32px;position:relative;z-index:2;overflow:hidden}
 .site-footer .brand img,.footer-logo img{filter:none}
 .footer-logo{text-align:center;margin-bottom:clamp(40px,6vw,64px)}
-.footer-logo .fl-wm{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:clamp(2.6rem,13vw,9rem);line-height:.9;letter-spacing:-.03em}
+.footer-logo .fl-wm{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:clamp(2.4rem,12vw,8rem);line-height:.9;letter-spacing:-.03em}
 .footer-logo .fl-wm span{color:var(--spot)}
+.footer-logo .fl-sub{font-family:var(--f-mono);font-size:clamp(.6rem,1.6vw,.74rem);letter-spacing:.14em;text-transform:uppercase;color:rgba(240,234,220,.5);margin-top:16px}
 .footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.1fr;gap:38px;margin:0 0 46px;padding-top:clamp(40px,5vw,60px);border-top:1px solid rgba(240,234,220,.22)}
 .footer-brand p{color:rgba(240,234,220,.6);font-size:.95rem;max-width:34ch}
 .foot-social{display:flex;gap:10px;margin-top:20px}

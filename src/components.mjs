@@ -49,7 +49,6 @@ export function statement(quoteHtml, by) {
       <p class="st-quote reveal">${quoteHtml}</p>
       ${by ? `<p class="st-by reveal" data-d="1">${by}</p>` : ""}
     </div>
-    ${controlStrip("Statement · Andruck", "02")}
   </section>`;
 }
 

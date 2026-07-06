@@ -134,12 +134,11 @@ function footer() {
   return `<footer class="site-footer">
   <div class="container">
     <div class="footer-logo reveal">
-      <img src="assets/img/logo.png" alt="TRUSTYDRUCK Logo" width="160" height="96">
       <div class="fl-wm"><b>TRUSTY</b><span>DRUCK</span></div>
+      <p class="fl-sub">Print &amp; Media · Werbeagentur · Meschede · Sauerland</p>
     </div>
     <div class="footer-top">
       <div class="footer-brand">
-        ${brand()}
         <p>Ihre Werbeagentur aus Meschede für hochwertige, individuelle Bedruckungslösungen — Leuchtreklame, Textildruck, Print &amp; Medien und Grafik.</p>
         <div class="foot-social">
           <a href="${SITE.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">${ICON.instagram}</a>

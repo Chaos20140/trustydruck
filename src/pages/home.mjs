@@ -1,6 +1,6 @@
 import { ICON, SITE } from "../layout.mjs";
 import { SERVICES } from "../data.mjs";
-import { marquee, ctaBand, whyRow, kicker, statement, plate, controlStrip, rasterFigure } from "../components.mjs";
+import { marquee, ctaBand, whyRow, kicker, statement, plate, rasterFigure } from "../components.mjs";
 
 const hero = `
 <section class="hero">
@@ -23,14 +23,13 @@ const hero = `
           <span class="chip"><i></i>Banner &amp; Großformat</span>
           <span class="chip"><i></i>Grafik &amp; Logo</span>
         </div>
-        <div class="scroll-cue" data-hero-fade><span class="ln"></span>Fahren Sie mit der Lupe darüber</div>
+        <div class="scroll-cue" data-hero-fade><span class="ln"></span>Scrollen &amp; entdecken</div>
       </div>
       <div class="hero-media" data-hero-fade>
-        ${rasterFigure("assets/img/gallery-1.jpg", { alt: "Beleuchtete Trustydruck-Leuchtreklame – als Halbtonraster", mark: "Andruck № 01", hint: "Lupe bewegen" })}
+        ${rasterFigure("assets/img/gallery-1.jpg", { alt: "Beleuchtete Trustydruck-Leuchtreklame", mark: "Andruck № 01", hint: "Hover zum Entwickeln" })}
       </div>
     </div>
   </div>
-  ${controlStrip("Home · 1/1 · Register", "01")}
 </section>`;
 
 const statsBand = `
