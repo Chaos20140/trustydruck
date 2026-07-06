@@ -96,7 +96,7 @@ export function plate(s, i, full = false) {
           ${full ? `<ul class="feature-list">${s.features.map((f) => `<li><span class="ic">${ICON.check}</span><span><b>${f[0]}</b>${f[1]}</span></li>`).join("")}</ul>
           <div class="tags">${s.tags.map((t) => `<span class="tag">${t}</span>`).join("")}</div>
           <div class="btn-row" style="margin-top:26px"><a class="btn magnetic" href="kontakt.html">Angebot anfragen ${ICON.arrow}</a><a class="btn btn--wa magnetic" href="${SITE.whatsapp}" target="_blank" rel="noopener noreferrer">${ICON.wa} Kurz fragen</a></div>`
-      : `<div class="btn-row" style="margin-top:22px"><a class="link" href="leistungen.html#${s.slug}">Mehr Infos ${ICON.arrow}</a></div>`}
+      : `<div class="btn-row" style="margin-top:24px"><a class="btn magnetic" href="leistungen.html#${s.slug}">${s.title} entdecken ${ICON.arrow}</a></div>`}
         </div>
       </div>
     </div>

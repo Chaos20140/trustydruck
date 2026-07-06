@@ -27,7 +27,7 @@
 
 *,*::before,*::after{box-sizing:border-box}
 *{margin:0;padding:0}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;overflow-x:clip}
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
 .lenis.lenis-stopped{overflow:hidden}
@@ -88,9 +88,9 @@ html:not(.js) .preloader,html.preloaded .preloader{display:none}
 .center{text-align:center}
 
 /* control strip — closes each band like a press colour bar */
-.control{display:flex;align-items:center;gap:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);
+.control{display:flex;align-items:center;gap:0;overflow:hidden;max-width:100%;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);
   font-family:var(--f-mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
-.control .lbl{padding:9px 16px;border-right:1px solid var(--line);white-space:nowrap}
+.control .lbl{padding:9px 16px;border-right:1px solid var(--line);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .control .steps{display:flex;flex:0 0 auto}
 .control .steps i{width:22px;height:20px;display:block}
 .control .steps i:nth-child(1){background:rgba(22,19,14,.15)}
@@ -98,8 +98,8 @@ html:not(.js) .preloader,html.preloaded .preloader{display:none}
 .control .steps i:nth-child(3){background:rgba(22,19,14,.6)}
 .control .steps i:nth-child(4){background:rgba(22,19,14,.85)}
 .control .steps i:nth-child(5){background:var(--ink)}
-.control .swatch{width:22px;height:20px;background:var(--spot);margin-left:10px}
-.control .no{margin-left:auto;padding:9px 16px;border-left:1px solid var(--line)}
+.control .swatch{width:22px;height:20px;background:var(--spot);margin-left:10px;flex:0 0 auto}
+.control .no{margin-left:auto;padding:9px 16px;border-left:1px solid var(--line);flex:0 0 auto;white-space:nowrap}
 
 /* ---------- Typography ---------- */
 .display{font-family:var(--f-display);font-weight:700;line-height:.94;letter-spacing:-.025em}
@@ -405,4 +405,5 @@ html.gsap .reveal{opacity:0}
   .btn{width:100%;justify-content:center}.btn-row .btn{width:auto}
   .brand .wm,.site-header.scrolled .brand .wm{font-size:1.15rem}.brand img{height:42px}
   .control .lbl{padding:9px 12px}
+  .control .no{display:none}
 }
