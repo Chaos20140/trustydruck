@@ -64,11 +64,13 @@ scripts/fetch-fonts.mjs → lädt Google-Fonts einmalig lokal (dann committen)
 ### Build / Serve / Deploy
 - `node build.mjs` nach jeder Änderung in `src/**` (HTML neu generieren). CSS/JS werden direkt
   referenziert → **kein** Rebuild nötig bei reinen CSS/JS-Edits (nur Browser-Reload).
-- Lokal ansehen: `npx --yes serve -l 5173 .` → http://localhost:5173/index.html
-  (Achtung: `serve` macht 301 clean-URL-Redirects auf `.html`; GitHub Pages NICHT — Links mit `.html` sind korrekt.)
-- Deploy: `git add -A && git commit && git push`. Pages baut automatisch (~30–90s).
-  Status: `gh api repos/Chaos20140/trustydruck/pages --jq '.status'` bis `built`.
-  Pages initial aktivieren (falls neu): `gh api -X POST repos/.../pages -f 'source[branch]=main' -f 'source[path]=/'`.
+- **Dev-Preview (bevorzugt):** `npm run dev` → `scripts/dev-preview.mjs` startet ein GUI unter
+  http://127.0.0.1:4321/__preview mit **Desktop + iPhone nebeneinander**, **Live-Reload** und
+  einem **Publish-Button**. Siehe Memory [[dev-preview-workflow]] — das ist der Standard für JEDES Projekt.
+- Alternativ nur ansehen: `npx --yes serve -l 5173 .` (301 clean-URL-Redirects; Pages nicht — `.html`-Links korrekt).
+- **Deploy-Disziplin:** NICHT mehr automatisch pushen. Der Kunde deployt über den **Publish-Button**
+  (oder wenn er es ausdrücklich sagt). Publish macht `build → git add -A → commit → push origin main`.
+  Pages baut dann automatisch (~30–90s). Status: `gh api repos/Chaos20140/trustydruck/pages --jq '.status'` bis `built`.
 - gh ist authentifiziert als Chaos20140 (repo+workflow scopes). git-Identität ist global gesetzt.
 
 ## Design-System (dark)
