@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kontakt – TRUSTYDRUCK</title>
 <meta name="description" content="Kontakt zu Trustydruck in Meschede: Anfrage für Leuchtreklame, Textildruck, Print & Medien oder Grafikdesign. Telefon, E-Mail, WhatsApp und Anfrageformular.">
-<meta name="theme-color" content="#f4f1ea">
+<meta name="theme-color" content="#f0eadc">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="assets/js/head.js"></script>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; frame-src https://www.google.com https://maps.google.com; connect-src 'self'; base-uri 'self'; form-action 'self' mailto:; object-src 'none'">
@@ -25,13 +25,14 @@
 <body data-page="kontakt">
 <div class="preloader" id="preloader" aria-hidden="true">
   <div class="pl-inner">
-    <img class="pl-logo" src="assets/img/logo.png" alt="TRUSTYDRUCK" width="140" height="84">
-    <div class="pl-bar"><span></span></div>
-    <div class="pl-count"><b>0</b>%</div>
-    <div class="pl-word">Vier Farben · ein Handwerk</div>
+    <div class="pl-mark" id="pl-mark">
+      <span class="ghost g1" aria-hidden="true">TRUSTYDRUCK</span>
+      <span class="ghost g2" aria-hidden="true">TRUSTYDRUCK</span>
+      <span class="pl-real">TRUSTYDRUCK</span>
+    </div>
+    <div class="pl-sub">In Register · Gut zum Druck</div>
   </div>
 </div>
-<div class="ink-bg" data-ink-stage aria-hidden="true"><canvas id="ink"></canvas><div class="ink-fallback"></div></div>
 <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
 <div class="slug">
   <span class="dot"><i style="background:#00aeef"></i><i style="background:#ec008c"></i><i style="background:#ffd200"></i><i style="background:#f4f1ea"></i>&nbsp; AUFTRAG: WEBSITE · 4/4-FARBIG</span>
@@ -66,9 +67,9 @@
 <section class="page-hero">
   <div class="container">
     <div class="crumbs reveal"><a href="index.html">Home</a> / Kontakt</div>
-    <span class="kicker"><span class="sw sw-c"></span><span class="sw sw-m"></span><span class="sw sw-y"></span><span class="sw sw-k"></span>Auftrag erteilen</span>
-    <h1 class="display ink-title reveal">Lassen Sie uns <em>reden</em>.</h1>
-    <p class="lede reveal" data-d="1">Erzählen Sie uns von Ihrem Projekt – wir melden uns schnellstmöglich mit einem passenden Angebot. Ganz unverbindlich.</p>
+    <span class="kicker"><span class="dot"></span>Auftrag erteilen</span>
+    <h1 class="display reveal" data-d="1">Lassen Sie uns <em>reden</em>.</h1>
+    <p class="lede reveal" data-d="2" style="margin-top:22px">Erzählen Sie uns von Ihrem Projekt – wir melden uns schnellstmöglich mit einem passenden Angebot. Ganz unverbindlich.</p>
   </div>
 </section>
 <section class="section--tight" style="padding-top:clamp(24px,3vw,40px)">
@@ -86,7 +87,7 @@
     <div class="contact-grid">
       <div class="reveal">
         <form class="ticket" id="contact-form" novalidate>
-          <div class="th"><span>Auftragsformular · TD-2026</span><span>4/4-farbig</span></div>
+          <div class="th"><span>Auftragsformular · TD-2026</span><span>Gut zum Druck</span></div>
           <div class="tb">
             <div class="field-row">
               <div class="field"><label for="name">Name <span class="req">*</span></label><input id="name" name="name" type="text" autocomplete="name" placeholder="Ihr Name" required></div>
@@ -96,19 +97,19 @@
             <div class="field"><label for="service">Leistung</label>
               <select id="service" name="service">
                 <option value="">Bitte wählen …</option>
-                <option value="Leuchtreklame">Cyan · Leuchtreklame</option><option value="Textildruck">Magenta · Textildruck</option><option value="Print & Medien">Yellow · Print & Medien</option><option value="Grafik & Logo">Key / Schwarz · Grafik & Logo</option>
+                <option value="Leuchtreklame">Leuchtreklame</option><option value="Textildruck">Textildruck</option><option value="Print & Medien">Print & Medien</option><option value="Grafik & Logo">Grafik & Logo</option>
                 <option value="Sonstiges">Sonstiges</option>
               </select>
             </div>
             <div class="field"><label for="message">Nachricht <span class="req">*</span></label><textarea id="message" name="message" placeholder="Beschreiben Sie kurz Ihr Vorhaben – Menge, Material, Wunschtermin …" required></textarea></div>
             <label class="consent"><input type="checkbox" name="consent"><span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu.</span></label>
-            <button class="btn btn--c btn--block btn--lg" type="submit">Zum Druck freigeben <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <p class="form-note">Das Formular öffnet Ihr E-Mail-Programm mit der fertig ausgefüllten Nachricht. Alternativ direkt: <a href="mailto:info@trustydruck.de" style="color:var(--blue)">info@trustydruck.de</a></p>
+            <button class="btn btn--spot btn--block btn--lg magnetic" type="submit">Zum Druck freigeben <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <p class="form-note">Das Formular öffnet Ihr E-Mail-Programm mit der fertig ausgefüllten Nachricht. Alternativ direkt: <a href="mailto:info@trustydruck.de" style="color:var(--spot)">info@trustydruck.de</a></p>
             <p class="form-status" role="status" aria-live="polite"></p>
           </div>
         </form>
       </div>
-      <div class="reveal" data-d="2">
+      <div class="reveal" data-d="1">
         <div class="map-wrap" style="min-height:260px;margin-bottom:20px">
           <iframe title="Standort Trustydruck Meschede" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Ruhrstra%C3%9Fe%207,%2059872%20Meschede&output=embed"></iframe>
         </div>
@@ -177,7 +178,7 @@
   </div><script src="assets/js/vendor/gsap.min.js"></script>
 <script src="assets/js/vendor/ScrollTrigger.min.js"></script>
 <script src="assets/js/vendor/lenis.min.js"></script>
-<script src="assets/js/ink.js"></script>
+<script src="assets/js/raster.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

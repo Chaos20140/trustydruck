@@ -67,7 +67,7 @@ function head({ title, desc, slug }) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${t}</title>
 <meta name="description" content="${desc}">
-<meta name="theme-color" content="#f4f1ea">
+<meta name="theme-color" content="#f0eadc">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="assets/js/head.js"></script>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; frame-src https://www.google.com https://maps.google.com; connect-src 'self'; base-uri 'self'; form-action 'self' mailto:; object-src 'none'">
@@ -87,13 +87,14 @@ ${slug === "home" ? jsonLd() : ""}
 <body data-page="${slug}">
 <div class="preloader" id="preloader" aria-hidden="true">
   <div class="pl-inner">
-    <img class="pl-logo" src="assets/img/logo.png" alt="TRUSTYDRUCK" width="140" height="84">
-    <div class="pl-bar"><span></span></div>
-    <div class="pl-count"><b>0</b>%</div>
-    <div class="pl-word">Vier Farben · ein Handwerk</div>
+    <div class="pl-mark" id="pl-mark">
+      <span class="ghost g1" aria-hidden="true">TRUSTYDRUCK</span>
+      <span class="ghost g2" aria-hidden="true">TRUSTYDRUCK</span>
+      <span class="pl-real">TRUSTYDRUCK</span>
+    </div>
+    <div class="pl-sub">In Register · Gut zum Druck</div>
   </div>
 </div>
-<div class="ink-bg" data-ink-stage aria-hidden="true"><canvas id="ink"></canvas><div class="ink-fallback"></div></div>
 <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
 <div class="slug">
   <span class="dot"><i style="background:#00aeef"></i><i style="background:#ec008c"></i><i style="background:#ffd200"></i><i style="background:#f4f1ea"></i>&nbsp; AUFTRAG: WEBSITE · 4/4-FARBIG</span>
@@ -204,7 +205,7 @@ export function layout({ title, desc, slug, body }) {
     `<script src="assets/js/vendor/gsap.min.js"></script>\n` +
     `<script src="assets/js/vendor/ScrollTrigger.min.js"></script>\n` +
     `<script src="assets/js/vendor/lenis.min.js"></script>\n` +
-    `<script src="assets/js/ink.js"></script>\n` +
+    `<script src="assets/js/raster.js"></script>\n` +
     `<script src="assets/js/main.js"></script>\n</body>\n</html>`
   );
 }

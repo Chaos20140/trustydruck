@@ -7,8 +7,8 @@ const pageHero = `
   <div class="container">
     <div class="crumbs reveal"><a href="index.html">Home</a> / Kontakt</div>
     ${kicker("Auftrag erteilen")}
-    <h1 class="display ink-title reveal">Lassen Sie uns <em>reden</em>.</h1>
-    <p class="lede reveal" data-d="1">Erzählen Sie uns von Ihrem Projekt – wir melden uns schnellstmöglich mit einem passenden Angebot. Ganz unverbindlich.</p>
+    <h1 class="display reveal" data-d="1">Lassen Sie uns <em>reden</em>.</h1>
+    <p class="lede reveal" data-d="2" style="margin-top:22px">Erzählen Sie uns von Ihrem Projekt – wir melden uns schnellstmöglich mit einem passenden Angebot. Ganz unverbindlich.</p>
   </div>
 </section>`;
 
@@ -30,7 +30,7 @@ const main = `
     <div class="contact-grid">
       <div class="reveal">
         <form class="ticket" id="contact-form" novalidate>
-          <div class="th"><span>Auftragsformular · TD-2026</span><span>4/4-farbig</span></div>
+          <div class="th"><span>Auftragsformular · TD-2026</span><span>Gut zum Druck</span></div>
           <div class="tb">
             <div class="field-row">
               <div class="field"><label for="name">Name <span class="req">*</span></label><input id="name" name="name" type="text" autocomplete="name" placeholder="Ihr Name" required></div>
@@ -40,19 +40,19 @@ const main = `
             <div class="field"><label for="service">Leistung</label>
               <select id="service" name="service">
                 <option value="">Bitte wählen …</option>
-                ${SERVICES.map((s) => `<option value="${s.title}">${s.channel} · ${s.title}</option>`).join("")}
+                ${SERVICES.map((s) => `<option value="${s.title}">${s.title}</option>`).join("")}
                 <option value="Sonstiges">Sonstiges</option>
               </select>
             </div>
             <div class="field"><label for="message">Nachricht <span class="req">*</span></label><textarea id="message" name="message" placeholder="Beschreiben Sie kurz Ihr Vorhaben – Menge, Material, Wunschtermin …" required></textarea></div>
             <label class="consent"><input type="checkbox" name="consent"><span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu.</span></label>
-            <button class="btn btn--c btn--block btn--lg" type="submit">Zum Druck freigeben ${ICON.arrow}</button>
-            <p class="form-note">Das Formular öffnet Ihr E-Mail-Programm mit der fertig ausgefüllten Nachricht. Alternativ direkt: <a href="mailto:${SITE.email}" style="color:var(--blue)">${SITE.email}</a></p>
+            <button class="btn btn--spot btn--block btn--lg magnetic" type="submit">Zum Druck freigeben ${ICON.arrow}</button>
+            <p class="form-note">Das Formular öffnet Ihr E-Mail-Programm mit der fertig ausgefüllten Nachricht. Alternativ direkt: <a href="mailto:${SITE.email}" style="color:var(--spot)">${SITE.email}</a></p>
             <p class="form-status" role="status" aria-live="polite"></p>
           </div>
         </form>
       </div>
-      <div class="reveal" data-d="2">
+      <div class="reveal" data-d="1">
         <div class="map-wrap" style="min-height:260px;margin-bottom:20px">
           <iframe title="Standort Trustydruck Meschede" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Ruhrstra%C3%9Fe%207,%2059872%20Meschede&output=embed"></iframe>
         </div>

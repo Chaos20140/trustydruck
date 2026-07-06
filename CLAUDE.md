@@ -25,7 +25,17 @@
 - **v3 „INK IN THE DARK"** (aktuell): dunkel, CMYK-Ink **glüht** (emissiv), GSAP+Lenis Motion,
   Preloader (Counter+Reveal), Custom-Cursor, magnetische Buttons, Parallax, Stats-Counter,
   großes Logo. Motion-Libs self-hosted in `assets/js/vendor/` (gsap, ScrollTrigger, lenis).
-- **v3.1 „WOW everywhere"**: Die Tinte ist EIN globaler, fixierter WebGL-Hintergrund
+- **v4 „RASTER — Gut zum Druck"** (aktuell, Kunden-Pivot: HELL + dunkle Schrift + andere Animation):
+  warmes Druckpapier (`--paper #f0eadc`), tiefschwarzer Text (`--ink #16130e`), EIN Spot-Rot (`--spot #da3a1f`).
+  Signatur = **Halbton-Raster-Lupe** (`assets/js/raster.js`, Canvas2D, KEIN WebGL): Bild lebt als schwarze
+  Rasterpunkte auf Papier; Cursor = Lupe, die lokal das Raster verdichtet, den Rasterwinkel auf 15° dreht und
+  das Bild „in Register" entwickelt; roter Fokus-Ring; Klick = Impression-Ripple; Load = Wortmarke „druckt sich
+  in Register" (Preloader, ersetzt Counter). Fonts: **Bricolage Grotesque** (Display, neu), Fraunces (Serif),
+  IBM Plex Mono (Utility). Druck-Furniture: Schnittmarken, Kontrollstreifen („Bogen №"), 12-Spalten-Editorial,
+  keine border-radius, Haarlinien. Bilder = echte Farbfotos mit Register-Wisch-Reveal (clip-path). Motion:
+  Lenis + GSAP (splitHeading, reveals, parallax, marquee-skew, magnetic). Fallbacks: kein Canvas2D/JS/reduced-
+  motion/low-mem → statisches Farb-`<img>`. **raster.js braucht same-origin Bilder** (getImageData sonst tainted).
+- v3.1 „WOW everywhere": Die Tinte ist EIN globaler, fixierter WebGL-Hintergrund
   (`.ink-bg` in layout, `#ink`). Sektionen sind per Default **opak** (`background:var(--bg)`,
   lesbar); „Ink-Fenster" (`.ink-window`: Hero, Statement-Band, CTA, Galerie, `.page-hero`)
   sind transparent und lassen die Tinte durchleuchten. Pro-Sektion-Effekte (main.js, GSAP):
