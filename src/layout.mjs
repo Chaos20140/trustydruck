@@ -173,7 +173,6 @@ function footer() {
       </div>
     </div>
   </div>
-  <div class="footer-ghost" aria-hidden="true">DRUCKFRISCH</div>
 </footer>`;
 }
 
