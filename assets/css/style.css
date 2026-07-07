@@ -53,7 +53,7 @@ ul{list-style:none}
 
 /* faint print dot-grid so the paper isn't flat */
 body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.7;
-  background-image:radial-gradient(rgba(22,19,14,.05) 1px,transparent 1.6px);background-size:26px 26px;animation:gridDrift 18s linear infinite}
+  background-image:radial-gradient(rgba(22,19,14,.05) 1px,transparent 1.6px);background-size:26px 26px;animation:gridDrift 11s linear infinite}
 @keyframes gridDrift{to{background-position:26px 26px}}
 /* paper fibre grain */
 body::after{
@@ -491,6 +491,9 @@ html.gsap .reveal{opacity:0}
   .st-block{max-width:none}
 }
 
+/* ---------- Scroll-progress registration bar ---------- */
+.scroll-prog{position:fixed;top:0;left:0;width:100%;height:3px;background:var(--spot);z-index:100;transform:scaleX(0);transform-origin:0 50%;will-change:transform}
+
 /* ---------- Custom cursor (desktop target/loupe) ---------- */
 .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;opacity:0;will-change:transform}
 .cursor-dot{width:6px;height:6px;margin:-3px 0 0 -3px;background:var(--spot);transition:opacity .3s}
@@ -503,8 +506,8 @@ html.cursor-on *{cursor:none!important}
 /* ---------- Ambient micro-motion ---------- */
 @keyframes tdPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.5);opacity:.45}}
 .kicker .dot{animation:tdPulse 2.6s var(--ease) infinite}
-@keyframes chipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-.hero-badges .chip{animation:chipFloat 3.6s var(--ease) infinite}
+@keyframes chipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hero-badges .chip{animation:chipFloat 3s var(--ease) infinite}
 .hero-badges .chip:nth-child(2){animation-delay:.45s}
 .hero-badges .chip:nth-child(3){animation-delay:.9s}
 .hero-badges .chip:nth-child(4){animation-delay:1.35s}

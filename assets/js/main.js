@@ -22,6 +22,11 @@
   const onScroll = () => header && header.classList.toggle("scrolled", scrollY > 20);
   onScroll(); addEventListener("scroll", onScroll, { passive: true });
 
+  /* ---- scroll-progress "registration" bar (always on) ---- */
+  const prog = document.createElement("div"); prog.className = "scroll-prog"; document.body.appendChild(prog);
+  const setProg = () => { const h = document.documentElement.scrollHeight - innerHeight; prog.style.transform = "scaleX(" + (h > 0 ? Math.min(1, Math.max(0, scrollY / h)) : 0) + ")"; };
+  setProg(); addEventListener("scroll", setProg, { passive: true }); addEventListener("resize", setProg, { passive: true });
+
   const burger = $(".burger");
   const closeMenu = () => { document.body.classList.remove("menu-open"); if (window.__lenis) window.__lenis.start(); };
   if (burger) {
@@ -188,7 +193,7 @@
       }
       // continuous scroll-life (scrub) so sections don't sit dead-still
       $$(".statement .st-block").forEach((el) => {
-        window.gsap.fromTo(el, { yPercent: 7 }, { yPercent: -7, ease: "none", scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: 0.6 } });
+        window.gsap.fromTo(el, { yPercent: 11 }, { yPercent: -11, ease: "none", scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: 0.6 } });
       });
       $$(".fl-wm").forEach((el) => {
         const f = el.closest(".site-footer"); if (!f) return;
