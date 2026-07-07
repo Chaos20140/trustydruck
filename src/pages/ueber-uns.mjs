@@ -1,5 +1,5 @@
 import { ICON, SITE } from "../layout.mjs";
-import { kicker, ctaBand, whyRow, proof } from "../components.mjs";
+import { kicker, ctaBand, whyRow, proof, druckformBand } from "../components.mjs";
 
 const pageHero = `
 <section class="page-hero">
@@ -75,5 +75,5 @@ export default {
   slug: "ueber-uns",
   title: "Über uns",
   desc: "Trustydruck aus Meschede: Leidenschaft für kreative Gestaltung und moderne Drucktechnik. Maßgeschneiderte Lösungen für Unternehmen, Schulen, Vereine und Privatkunden.",
-  body: pageHero + story + values + why + location + ctaBand(),
+  body: pageHero + druckformBand() + story + values + why + location + ctaBand(),
 };

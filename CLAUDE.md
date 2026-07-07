@@ -66,6 +66,15 @@
 - **REVIEWS in `data.mjs` = PLATZHALTER** (Trustydruck hat KEIN öffentliches Google-/FB-
   Bewertungsprofil, Recherche 06.07.2026). Vor Livegang durch echte Stimmen ersetzen —
   gleiche Disziplin wie die `[…]`-Platzhalter im Impressum. KEINE Fake-Reviews erfinden (UWG!).
+- **Weitere Signaturen pro Unterseite (v5):** (B) `assets/js/druckform.js` = „DIE DRUCKFORM"
+  auf **Über-uns** (`druckformBand()`): Wortmarke als geprägte Photopolymer-Druckplatte, **RAW
+  WebGL2 Single-Quad-Emboss** (KEIN Three!), Rakel-Licht folgt Cursor, roter Fehlregister-Ghost
+  snappt in Register. Läuft auch auf Touch (Auto-Drift, billig). (A) `assets/js/logo3d.js` =
+  **extrudierte 3D-Bildmarke** in der Home-`about`-Sektion (`data-logo3d`): Shapes aus den
+  **favicon.svg-Pfaden** (px=x-32, py=32-y), `ExtrudeGeometry`, Klinge=ink, Dreieck=paper,
+  roter Rim-Light, kippt zum Cursor + Idle-Drift. Nutzt das **schon geladene Three** (shared
+  lazy-load via `script[data-three]`), Desktop-only, Fallback = `logo.png` (invert). Test-Flags:
+  `?loupe=1` (Loupe) / `?gl3d=1` (3D-Logo) umgehen das `pointer:fine`-Gate für Headless-Tests.
 
 ## Feedback-Details (v3, unbedingt beachten)
 - „Logo größer" heißt: nur die **Bildmarke** (`logo.png`, `.brand img`) — **NICHT** den

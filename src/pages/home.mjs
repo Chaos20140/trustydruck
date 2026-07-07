@@ -45,15 +45,16 @@ const statsBand = `
 </section>`;
 
 const about = `
-<section class="section">
+<section class="section about">
   <div class="container">
     <div class="plate-grid">
-      <div class="reveal">
-        ${kicker("Über Trustydruck")}
-        <h2 class="display split">Leidenschaft fürs <em>Handwerk</em>.</h2>
+      <div class="logo3d reveal" data-logo3d>
+        <img class="l3-fallback" src="assets/img/logo.png" alt="Trustydruck Bildmarke" width="220" height="220">
       </div>
       <div class="reveal" data-d="1">
-        <p class="lede">Unsere Leidenschaft für kreative Gestaltung und unsere modernen Drucktechniken ermöglichen es uns, maßgeschneiderte Lösungen für Unternehmen, Schulen, Vereine und Privatkunden anzubieten.</p>
+        ${kicker("Über Trustydruck")}
+        <h2 class="display split">Leidenschaft fürs <em>Handwerk</em>.</h2>
+        <p class="lede" style="margin-top:20px">Unsere Leidenschaft für kreative Gestaltung und unsere modernen Drucktechniken ermöglichen es uns, maßgeschneiderte Lösungen für Unternehmen, Schulen, Vereine und Privatkunden anzubieten.</p>
         <p style="margin-top:16px;color:var(--ink-soft)">Von einzigartigen Designs bis hin zu Firmenlogos und Werbebotschaften bringen wir Ihre Ideen zum Leben. Mit einem engagierten Team und einem Fokus auf Qualität und Kundenzufriedenheit bieten wir einen herausragenden Service und einzigartige Produkte.</p>
         <div class="btn-row" style="margin-top:28px"><a class="link" href="ueber-uns.html">Mehr über uns ${ICON.arrow}</a></div>
       </div>

@@ -60,6 +60,15 @@ export function statement(quoteHtml, by) {
   </section>`;
 }
 
+// "DIE DRUCKFORM" — letterpress printing-plate of the wordmark (WebGL2, subpage signature)
+export function druckformBand() {
+  return `<section class="druckform" data-druckform aria-label="Trustydruck Druckform">
+    <canvas class="df-canvas" aria-hidden="true"></canvas>
+    <div class="df-fallback"><b>TRUSTY</b><span>DRUCK</span></div>
+    <span class="df-tag">Druckform · Photopolymer · 4c</span>
+  </section>`;
+}
+
 // full-width "why us" band with big print-plate cards (home)
 export function whyBand() {
   const items = [

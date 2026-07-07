@@ -205,7 +205,8 @@ export function layout({ title, desc, slug, body }) {
     `<script src="assets/js/vendor/gsap.min.js"></script>\n` +
     `<script src="assets/js/vendor/ScrollTrigger.min.js"></script>\n` +
     `<script src="assets/js/vendor/lenis.min.js"></script>\n` +
-    (slug === "home" ? `<script src="assets/js/loupe.js"></script>\n` : "") +
+    (slug === "home" ? `<script src="assets/js/loupe.js"></script>\n<script src="assets/js/logo3d.js"></script>\n` : "") +
+    (slug === "ueber-uns" ? `<script src="assets/js/druckform.js"></script>\n` : "") +
     `<script src="assets/js/raster.js"></script>\n` +
     `<script src="assets/js/main.js"></script>\n</body>\n</html>`
   );
