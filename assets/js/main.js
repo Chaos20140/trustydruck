@@ -186,6 +186,19 @@
         window.ScrollTrigger.create({ onUpdate: (self) => { const v = window.gsap.utils.clamp(-6, 6, self.getVelocity() / 320); if (Math.abs(v) > Math.abs(skew)) skew = v; } });
         window.gsap.ticker.add(() => { skew *= 0.9; marquees.forEach((m) => { m.style.transform = `skewX(${skew.toFixed(2)}deg)`; }); });
       }
+      // continuous scroll-life (scrub) so sections don't sit dead-still
+      $$(".statement .st-block").forEach((el) => {
+        window.gsap.fromTo(el, { yPercent: 7 }, { yPercent: -7, ease: "none", scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: 0.6 } });
+      });
+      $$(".fl-wm").forEach((el) => {
+        const f = el.closest(".site-footer"); if (!f) return;
+        window.gsap.fromTo(el, { xPercent: -3 }, { xPercent: 3, ease: "none", scrollTrigger: { trigger: f, start: "top bottom", end: "bottom top", scrub: 0.6 } });
+      });
+      $$(".rv-card").forEach((el, i) => {
+        const sec = el.closest(".reviews"); if (!sec) return;
+        const amp = (i % 2 === 0) ? 3 : -2.4;
+        window.gsap.fromTo(el, { yPercent: -amp }, { yPercent: amp, ease: "none", scrollTrigger: { trigger: sec, start: "top bottom", end: "bottom top", scrub: 0.8 } });
+      });
       addEventListener("load", () => window.ScrollTrigger.refresh());
       setTimeout(() => window.ScrollTrigger.refresh(), 1200);
     } else {
@@ -203,6 +216,27 @@
     });
   }
 
+  /* ---- custom cursor: precise red dot + trailing ring (desktop) ---- */
+  function initCursor() {
+    if (coarse || reduce) return;
+    const dot = document.createElement("div"); dot.className = "cursor-dot";
+    const ring = document.createElement("div"); ring.className = "cursor-ring";
+    document.body.appendChild(dot); document.body.appendChild(ring);
+    const root = document.documentElement; root.classList.add("cursor-on");
+    let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
+    addEventListener("mousemove", (e) => { mx = e.clientX; my = e.clientY; dot.style.transform = `translate(${mx}px,${my}px)`; }, { passive: true });
+    const loop = () => { rx += (mx - rx) * 0.2; ry += (my - ry) * 0.2; ring.style.transform = `translate(${rx.toFixed(2)}px,${ry.toFixed(2)}px)`; requestAnimationFrame(loop); };
+    requestAnimationFrame(loop);
+    const HOV = "a,button,.magnetic,input,textarea,select,label,.rv-card,.why-card,.chip,[data-loupe3d],[data-logo3d]";
+    addEventListener("mouseover", (e) => { if (e.target.closest && e.target.closest(HOV)) root.classList.add("cursor-hover"); }, { passive: true });
+    addEventListener("mouseout", (e) => { if (e.target.closest && e.target.closest(HOV)) root.classList.remove("cursor-hover"); }, { passive: true });
+    addEventListener("mousedown", () => root.classList.add("cursor-down"), { passive: true });
+    addEventListener("mouseup", () => root.classList.remove("cursor-down"), { passive: true });
+    document.addEventListener("mouseleave", () => { dot.style.opacity = "0"; ring.style.opacity = "0"; });
+    document.addEventListener("mouseenter", () => { dot.style.opacity = ""; ring.style.opacity = ""; });
+  }
+
   initMagnetic();
+  initCursor();
   runPreloader(startMotion);
 })();
